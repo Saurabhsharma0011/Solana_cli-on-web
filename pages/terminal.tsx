@@ -35,6 +35,30 @@ export default function TerminalPage() {
               It's powered by secure RPC connections and doesn't require any private keys, making it perfect for learning, 
               research, and quick blockchain queries.
             </p>
+            
+            <h3 className="text-lg font-medium mb-2">Solana CLI Installation</h3>
+            <p className="text-gray-300 mb-3">
+              You can simulate the installation of Solana CLI directly in the terminal using any of these commands:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+              <div className="bg-[#0B1120] p-3 rounded border border-[#334155]">
+                <div className="text-sm font-medium mb-1">Linux / macOS (using curl):</div>
+                <code className="text-xs text-purple-400 break-all">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</code>
+              </div>
+              <div className="bg-[#0B1120] p-3 rounded border border-[#334155]">
+                <div className="text-sm font-medium mb-1">Debian / Ubuntu:</div>
+                <code className="text-xs text-purple-400">apt-get install solana-cli</code>
+              </div>
+              <div className="bg-[#0B1120] p-3 rounded border border-[#334155]">
+                <div className="text-sm font-medium mb-1">macOS (using Homebrew):</div>
+                <code className="text-xs text-purple-400">brew install solana</code>
+              </div>
+              <div className="bg-[#0B1120] p-3 rounded border border-[#334155]">
+                <div className="text-sm font-medium mb-1">Check installed version:</div>
+                <code className="text-xs text-purple-400">solana --version</code>
+              </div>
+            </div>
+            
             <h3 className="text-lg font-medium mb-2">Available Commands</h3>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-300">
               <li><code className="bg-[#0B1120] px-2 py-1 rounded">solana balance</code> - Check SOL balance</li>
