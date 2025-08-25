@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import Layout from "../components/layout/Layout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import { ChevronRight, Code, Copy, Terminal, Play } from "lucide-react";
@@ -67,7 +68,7 @@ export default function DocsPage() {
                 
                 <h3 className="text-xl font-medium mb-4">Your First Solana Connection</h3>
                 <p className="text-gray-300 mb-4">
-                  Let's start by connecting to the Solana network and checking the current SOL balance of an address.
+                  Let&apos;s start by connecting to the Solana network and checking the current SOL balance of an address.
                 </p>
                 
                 <div className="mb-6">
@@ -203,7 +204,7 @@ solana slot --url https://api.devnet.solana.com`}
                       <span className="font-medium">/api/user</span>
                     </div>
                     <p className="text-sm text-gray-300">
-                      User API endpoint. GET returns a sample user. POST creates a new user (requires "name" field).
+                      User API endpoint. GET returns a sample user. POST creates a new user (requires &quot;name&quot; field).
                     </p>
                   </div>
                 </div>
@@ -212,10 +213,10 @@ solana slot --url https://api.devnet.solana.com`}
               </div>
               
               <div className="text-center">
-                <a href="/terminal" className="inline-flex items-center bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-lg text-base font-medium transition-colors">
+                <Link href="/terminal" className="inline-flex items-center bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-lg text-base font-medium transition-colors">
                   <Terminal size={16} className="mr-2" />
                   Try Commands in Terminal
-                </a>
+                </Link>
               </div>
               
               <div className="mt-16 p-4 border border-yellow-500/30 bg-yellow-500/10 rounded-lg">

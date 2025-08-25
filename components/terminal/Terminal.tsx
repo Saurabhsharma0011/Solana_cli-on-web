@@ -75,7 +75,7 @@ const Terminal = () => {
       if (!terminalState.solanaCliInstalled) {
         return (
           <div className="text-red-400">
-            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</span>
+            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</span>
           </div>
         );
       }
@@ -89,7 +89,7 @@ const Terminal = () => {
       if (!terminalState.solanaCliInstalled) {
         return (
           <div className="text-red-400">
-            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</span>
+            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</span>
           </div>
         );
       }
@@ -127,7 +127,7 @@ const Terminal = () => {
       if (!terminalState.solanaCliInstalled) {
         return (
           <div className="text-red-400">
-            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</span>
+            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</span>
           </div>
         );
       }
@@ -138,7 +138,7 @@ const Terminal = () => {
       if (!terminalState.solanaCliInstalled) {
         return (
           <div className="text-red-400">
-            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</span>
+            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</span>
           </div>
         );
       }
@@ -156,7 +156,7 @@ const Terminal = () => {
       if (!terminalState.solanaCliInstalled) {
         return (
           <div className="text-red-400">
-            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</span>
+            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</span>
           </div>
         );
       }
@@ -167,7 +167,7 @@ const Terminal = () => {
       if (!terminalState.solanaCliInstalled) {
         return (
           <div className="text-red-400">
-            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</span>
+            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</span>
           </div>
         );
       }
@@ -178,7 +178,7 @@ const Terminal = () => {
       if (!terminalState.solanaCliInstalled) {
         return (
           <div className="text-red-400">
-            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</span>
+            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</span>
           </div>
         );
       }
@@ -195,7 +195,7 @@ const Terminal = () => {
       if (!terminalState.solanaCliInstalled) {
         return (
           <div className="text-red-400">
-            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</span>
+            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</span>
           </div>
         );
       }
@@ -219,7 +219,7 @@ const Terminal = () => {
       if (!terminalState.solanaCliInstalled) {
         return (
           <div className="text-red-400">
-            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</span>
+            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</span>
           </div>
         );
       }
@@ -230,7 +230,7 @@ const Terminal = () => {
       if (!terminalState.solanaCliInstalled) {
         return (
           <div className="text-red-400">
-            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</span>
+            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</span>
           </div>
         );
       }
@@ -254,7 +254,7 @@ const Terminal = () => {
       if (!terminalState.solanaCliInstalled) {
         return (
           <div className="text-red-400">
-            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</span>
+            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</span>
           </div>
         );
       }
@@ -287,7 +287,7 @@ const Terminal = () => {
       if (!terminalState.solanaCliInstalled) {
         return (
           <div className="text-red-400">
-            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</span>
+            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</span>
           </div>
         );
       }
@@ -334,7 +334,7 @@ const Terminal = () => {
       if (!terminalState.solanaCliInstalled) {
         return (
           <div className="text-red-400">
-            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</span>
+            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</span>
           </div>
         );
       }
@@ -435,7 +435,6 @@ const Terminal = () => {
     
     // Extract command and arguments
     const parts = normalizedCmd.split(' ');
-    const baseCmd = parts[0];
     const args = parts.slice(1).join(' ');
     
     // Special case for solana-keygen
@@ -511,7 +510,7 @@ const Terminal = () => {
           <div className="text-gray-400">######################################################################## 100.0%</div>
           <div className="text-gray-400">==&gt; Installing solana</div>
           <div className="text-gray-400">==&gt; Caveats</div>
-          <div className="text-gray-400">Homebrew's post-install process has been completed</div>
+          <div className="text-gray-400">Homebrew&apos;s post-install process has been completed</div>
           <div className="text-green-400 mt-2 font-semibold">Solana CLI installed successfully!</div>
           <div className="text-gray-400 mt-1">To verify installation, run: <span className="text-yellow-300">solana --version</span></div>
         </div>
@@ -531,7 +530,7 @@ const Terminal = () => {
       if (!terminalState.solanaCliInstalled) {
         return (
           <div className="text-red-400">
-            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</span>
+            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</span>
           </div>
         );
       }
@@ -548,7 +547,7 @@ const Terminal = () => {
       if (!terminalState.solanaCliInstalled) {
         return (
           <div className="text-red-400">
-            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</span>
+            Error: Solana CLI not found. Install it first with <span className="text-yellow-300">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</span>
           </div>
         );
       }

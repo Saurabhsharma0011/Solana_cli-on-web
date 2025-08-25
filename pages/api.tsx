@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import Layout from "../components/layout/Layout";
 import { Code, Copy, ExternalLink } from "lucide-react";
 
@@ -226,7 +227,7 @@ GET /token/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/holders?limit=2
                   </div>
                   
                   <p className="text-gray-300 mb-4">
-                    When the subscribed account changes, you'll receive a notification with the updated data:
+                    When the subscribed account changes, you&apos;ll receive a notification with the updated data:
                   </p>
                   
                   <div className="bg-[#0B1120] p-3 rounded-md font-mono text-sm">
@@ -256,9 +257,9 @@ GET /token/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/holders?limit=2
               </div>
               
               <div className="text-center">
-                <a href="/docs" className="inline-flex items-center bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-lg text-base font-medium transition-colors">
+                <Link href="/docs" className="inline-flex items-center bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-lg text-base font-medium transition-colors">
                   Explore Full Documentation
-                </a>
+                </Link>
               </div>
             </div>
           </div>

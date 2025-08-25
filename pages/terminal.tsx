@@ -32,7 +32,7 @@ export default function TerminalPage() {
             <h2 className="text-xl font-semibold mb-4">About Web4 Terminal</h2>
             <p className="text-gray-300 mb-4">
               The Nex4 Web4 Terminal provides a sandboxed, read-only environment for interacting with the Solana blockchain. 
-              It's powered by secure RPC connections and doesn't require any private keys, making it perfect for learning, 
+              It&apos;s powered by secure RPC connections and doesn&apos;t require any private keys, making it perfect for learning, 
               research, and quick blockchain queries.
             </p>
             
@@ -43,7 +43,7 @@ export default function TerminalPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
               <div className="bg-[#0B1120] p-3 rounded border border-[#334155]">
                 <div className="text-sm font-medium mb-1">Linux / macOS (using curl):</div>
-                <code className="text-xs text-purple-400 break-all">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</code>
+                <code className="text-xs text-purple-400 break-all">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</code>
               </div>
               <div className="bg-[#0B1120] p-3 rounded border border-[#334155]">
                 <div className="text-sm font-medium mb-1">Debian / Ubuntu:</div>
