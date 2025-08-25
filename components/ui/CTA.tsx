@@ -12,7 +12,7 @@ const CTA = () => {
               Ready to Supercharge Your Solana Development?
             </h2>
             <p className="text-gray-300 text-lg mb-8">
-              Experience the power of TESTING dev today. Start building, exploring, and analyzing on Solana with our professional browser-based platform.
+              Experience the power of Nex4 today. Start building, exploring, and analyzing on Solana with our professional browser-based platform.
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">

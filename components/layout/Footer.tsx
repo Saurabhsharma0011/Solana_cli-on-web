@@ -11,9 +11,9 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                <span className="font-bold text-sm">T4</span>
+                <span className="font-bold text-sm">N4</span>
               </div>
-              <span className="font-bold text-xl">TESTING dev</span>
+              <span className="font-bold text-xl">Nex4</span>
             </div>
             <p className="text-gray-400 text-sm mb-4">
               A professional browser-based platform for Solana developers and researchers.
@@ -22,7 +22,7 @@ const Footer = () => {
               <a href="https://github.com/nex4-network" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github size={20} className="text-gray-400 hover:text-white transition-colors" />
               </a>
-              <a href="https://twitter.com/nex4_network" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <a href="https://twitter.com/nex4_network" target="x.com/nex4dev" rel="noopener noreferrer" aria-label="Twitter">
                 <Twitter size={20} className="text-gray-400 hover:text-white transition-colors" />
               </a>
             </div>
@@ -103,7 +103,7 @@ const Footer = () => {
 
         <div className="border-t border-[#1E293B] mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-xs mb-4 md:mb-0">
-            © {new Date().getFullYear()} TESTING dev Network. All rights reserved.
+            © {new Date().getFullYear()} Nex4 Network. All rights reserved.
           </p>
           <div className="text-gray-500 text-xs">
             Built with 💜 for the Solana ecosystem

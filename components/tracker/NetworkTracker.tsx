@@ -1,7 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BarChart2, Clock, Database, CreditCard, Activity, PieChart, RefreshCw } from 'lucide-react';
+import { getSolanaPrice, SolanaPrice } from '../../services/coingeckoService';
 
 const NetworkTracker = () => {
+  const [solPrice, setSolPrice] = useState<SolanaPrice>({
+    currentPrice: 0,
+    priceChange24h: 0,
+    priceChangePercentage24h: 0,
+    lastUpdated: ''
+  });
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchSolanaPrice = async () => {
+      try {
+        setIsLoading(true);
+        const price = await getSolanaPrice();
+        setSolPrice(price);
+        setError(null);
+      } catch (err) {
+        console.error('Error fetching Solana price:', err);
+        setError('Failed to fetch price data');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchSolanaPrice();
+
+    // Set up interval to refresh price every 60 seconds
+    const intervalId = setInterval(fetchSolanaPrice, 60000);
+
+    // Clean up interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
   return (
     <div className="bg-[#0F172A] border border-[#1E293B] rounded-lg overflow-hidden">
       {/* Tracker Header */}
@@ -25,11 +58,36 @@ const NetworkTracker = () => {
               <CreditCard size={14} className="mr-1" />
               SOL Price
             </div>
-            <div className="text-xs bg-green-600/20 text-green-400 px-2 py-0.5 rounded">+2.4%</div>
+            {isLoading ? (
+              <div className="text-xs flex items-center">
+                <RefreshCw size={12} className="animate-spin mr-1" />
+                Loading...
+              </div>
+            ) : (
+              <div className={`text-xs px-2 py-0.5 rounded ${
+                solPrice.priceChangePercentage24h >= 0 
+                  ? 'bg-green-600/20 text-green-400' 
+                  : 'bg-red-600/20 text-red-400'
+              }`}>
+                {solPrice.priceChangePercentage24h >= 0 ? '+' : ''}
+                {solPrice.priceChangePercentage24h.toFixed(2)}%
+              </div>
+            )}
           </div>
           <div className="flex items-baseline">
-            <span className="text-2xl font-bold">$133.78</span>
-            <span className="text-green-400 ml-2 text-sm">↑ $3.15</span>
+            <span className="text-2xl font-bold">
+              ${isLoading ? '--' : solPrice.currentPrice.toFixed(2)}
+            </span>
+            {!isLoading && (
+              <span className={`ml-2 text-sm ${
+                solPrice.priceChange24h >= 0 
+                  ? 'text-green-400' 
+                  : 'text-red-400'
+              }`}>
+                {solPrice.priceChange24h >= 0 ? '↑' : '↓'} $
+                {Math.abs(solPrice.priceChange24h).toFixed(2)}
+              </span>
+            )}
           </div>
         </div>
         

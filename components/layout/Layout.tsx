@@ -11,7 +11,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({
   children,
-  title = 'TESTING dev - Professional Solana Development Platform',
+  title = 'Nex4',
   description = 'Browser-based platform for Solana developers and researchers with live terminal, network tracker, and interactive documentation.'
 }) => {
   return (
@@ -23,8 +23,8 @@ const Layout: React.FC<LayoutProps> = ({
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/og-image.png" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta property="og:image" content="./Nnewlogo.png" />
+        <link rel="icon" href="/Nnewlogo.png" />
       </Head>
       <div className="flex flex-col min-h-screen bg-[#0B1120]">
         <Navbar />

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export default function TrackerPage() {
   return (
     <div className={`${geistSans.className} ${geistMono.className} font-sans`}>
-      <Layout title="TESTING dev Network Tracker - Live Solana Metrics" description="Monitor Solana network performance in real-time with detailed metrics on price, TPS, validators, and block production.">
+      <Layout title="Nex4 Network Tracker - Live Solana Metrics" description="Monitor Solana network performance in real-time with detailed metrics on price, TPS, validators, and block production.">
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="mb-8">
             <h1 className="text-3xl font-bold mb-2">Live Network Tracker</h1>
@@ -29,7 +29,7 @@ export default function TrackerPage() {
           <div className="mt-8 bg-[#1E293B] border border-[#334155] rounded-lg p-6">
             <h2 className="text-xl font-semibold mb-4">About Network Tracker</h2>
             <p className="text-gray-300 mb-4">
-              The TESTING dev Network Tracker provides a comprehensive real-time view of the Solana blockchain. 
+              The Nex4 Network Tracker provides a comprehensive real-time view of the Solana blockchain. 
               Monitor key metrics like SOL price, transactions per second (TPS), current slot and epoch information, 
               and validator performance all in one place.
             </p>

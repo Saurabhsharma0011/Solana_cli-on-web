@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export default function TerminalPage() {
   return (
     <div className={`${geistSans.className} ${geistMono.className} font-sans`}>
-      <Layout title="TESTING dev Terminal - Browser-Based Solana CLI" description="Use Solana CLI commands directly in your browser with TESTING dev's Web4 Terminal. No private keys required.">
+      <Layout title="Nex4 Terminal - Browser-Based Solana CLI" description="Use Solana CLI commands directly in your browser with Nex4's Web4 Terminal. No private keys required.">
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="mb-8">
             <h1 className="text-3xl font-bold mb-2">Web4 Terminal</h1>
@@ -31,7 +31,7 @@ export default function TerminalPage() {
           <div className="mt-8 bg-[#1E293B] border border-[#334155] rounded-lg p-6">
             <h2 className="text-xl font-semibold mb-4">About Web4 Terminal</h2>
             <p className="text-gray-300 mb-4">
-              The TESTING dev Web4 Terminal provides a sandboxed, read-only environment for interacting with the Solana blockchain. 
+              The Nex4 Web4 Terminal provides a sandboxed, read-only environment for interacting with the Solana blockchain. 
               It's powered by secure RPC connections and doesn't require any private keys, making it perfect for learning, 
               research, and quick blockchain queries.
             </p>

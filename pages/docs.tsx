@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Layout from "../components/layout/Layout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import { ChevronRight, Code, Copy, Terminal, Play } from "lucide-react";
+import ApiTester from "../components/docs/ApiTester";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,10 @@ export default function DocsPage() {
                   <a href="#cli-commands" className="flex items-center text-gray-300 hover:text-purple-400 transition-colors py-2 px-3 hover:bg-[#0F172A] rounded-md">
                     <ChevronRight size={16} className="mr-2" />
                     CLI Commands
+                  </a>
+                  <a href="#api-routes" className="flex items-center text-gray-300 hover:text-purple-400 transition-colors py-2 px-3 hover:bg-[#0F172A] rounded-md">
+                    <ChevronRight size={16} className="mr-2" />
+                    API Routes
                   </a>
                   <a href="#web3js" className="flex items-center text-gray-300 hover:text-purple-400 transition-colors py-2 px-3 hover:bg-[#0F172A] rounded-md">
                     <ChevronRight size={16} className="mr-2" />
@@ -174,11 +179,49 @@ solana slot --url https://api.devnet.solana.com`}
                 </div>
               </div>
               
+              <div id="api-routes" className="bg-[#1E293B] border border-[#334155] rounded-lg p-6 mb-8">
+                <h2 className="text-2xl font-semibold mb-4">API Routes</h2>
+                <p className="text-gray-300 mb-6">
+                  Test our API routes using GET and POST methods. This interactive tool lets you send requests and view responses in real-time.
+                </p>
+                
+                <h3 className="text-xl font-medium mb-4">Available API Endpoints</h3>
+                <div className="space-y-4 mb-8">
+                  <div className="border border-[#334155] rounded-md p-4">
+                    <div className="flex items-center mb-2">
+                      <Code size={16} className="text-purple-400 mr-2" />
+                      <span className="font-medium">/api/hello</span>
+                    </div>
+                    <p className="text-sm text-gray-300">
+                      A simple API that returns a greeting message. Supports both GET and POST methods.
+                    </p>
+                  </div>
+                  
+                  <div className="border border-[#334155] rounded-md p-4">
+                    <div className="flex items-center mb-2">
+                      <Code size={16} className="text-purple-400 mr-2" />
+                      <span className="font-medium">/api/user</span>
+                    </div>
+                    <p className="text-sm text-gray-300">
+                      User API endpoint. GET returns a sample user. POST creates a new user (requires "name" field).
+                    </p>
+                  </div>
+                </div>
+                
+                <ApiTester />
+              </div>
+              
               <div className="text-center">
                 <a href="/terminal" className="inline-flex items-center bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-lg text-base font-medium transition-colors">
                   <Terminal size={16} className="mr-2" />
                   Try Commands in Terminal
                 </a>
+              </div>
+              
+              <div className="mt-16 p-4 border border-yellow-500/30 bg-yellow-500/10 rounded-lg">
+                <p className="text-center text-yellow-400">
+                  <strong>Note:</strong> Currently the platform is on devnet but after all tests the website will go live to mainnet.
+                </p>
               </div>
             </div>
           </div>

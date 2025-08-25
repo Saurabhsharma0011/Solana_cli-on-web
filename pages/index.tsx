@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export default function Home() {
   return (
     <div className={`${geistSans.className} ${geistMono.className} font-sans`}>
-      <Layout title="TESTING dev - Professional Solana Development Platform" description="Browser-based platform for Solana developers and researchers with live terminal, network tracker, and interactive documentation.">
+      <Layout title="Nex4" description="Browser-based platform for Solana developers and researchers with live terminal, network tracker, and interactive documentation.">
         <Hero />
         <Features />
         <CTA />

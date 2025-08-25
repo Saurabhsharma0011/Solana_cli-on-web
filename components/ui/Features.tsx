@@ -9,7 +9,7 @@ const Features = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Powerful Tools for Solana Developers</h2>
           <p className="text-gray-400 max-w-3xl mx-auto">
-            TESTING dev combines essential Solana development tools in one professional platform, 
+            Nex4 combines essential Solana development tools in one professional platform, 
             making blockchain development and analysis more accessible and efficient.
           </p>
         </div>

@@ -25,7 +25,7 @@ const Terminal = () => {
       command: 'welcome',
       output: (
         <div className="text-green-400 mb-2">
-          <div className="mb-1">Welcome to TESTING dev Terminal - Solana CLI in your browser</div>
+          <div className="mb-1">Welcome to Nex4 Terminal - Solana CLI in your browser</div>
           <div className="text-gray-400 text-sm">
             Type <span className="text-yellow-300">help</span> to see available commands
           </div>
@@ -604,7 +604,7 @@ const Terminal = () => {
         <div className="bg-[#1E293B] px-4 py-2 flex justify-between items-center border-b border-[#334155]">
           <div className="flex items-center space-x-2">
             <TerminalIcon size={16} className="text-purple-400" />
-            <span className="font-medium text-sm">TESTING dev Terminal</span>
+            <span className="font-medium text-sm">Nex4 Terminal</span>
           </div>
           <div className="flex items-center space-x-2">
             <button 

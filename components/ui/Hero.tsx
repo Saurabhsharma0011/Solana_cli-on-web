@@ -1,6 +1,7 @@
 import React from 'react';
 import { Terminal, BarChart2, BookOpen, Database, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import Typewriter from 'typewriter-effect';
 
 const Hero = () => {
   return (
@@ -14,10 +15,20 @@ const Hero = () => {
                 Professional Solana Development Platform
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                The Complete Solana Toolkit for Developers
+                <Typewriter
+                  onInit={(typewriter) => {
+                    typewriter
+                      .typeString('The Complete Solana Toolkit for Developers')
+                      .callFunction(() => {
+                        // Hide cursor when typing is complete
+                        document.querySelector('.Typewriter__cursor')?.classList.add('hidden');
+                      })
+                      .start();
+                  }}
+                />
               </h1>
               <p className="mt-6 text-lg text-gray-300 leading-relaxed">
-                TESTING dev brings Solana development and analysis to your browser. Real-time network tracking,
+                Nex4 brings Solana development and analysis to your browser. Real-time network tracking,
                 in-browser CLI tools, and interactive documentation—all in one place.
               </p>
             </div>
@@ -95,7 +106,7 @@ const Hero = () => {
               </div>
               <div className="flex items-center">
                 <Terminal size={14} className="text-purple-400 mr-2" />
-                <span className="text-sm">TESTING dev Terminal</span>
+                <span className="text-sm">Nex4 Terminal</span>
               </div>
             </div>
             
