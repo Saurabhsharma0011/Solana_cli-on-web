@@ -4,10 +4,10 @@ import type { NextApiRequest, NextApiResponse } from "next";
 type ResponseData = {
   method?: string;
   message?: string;
-  requestBody?: Record<string, unknown>;
+  requestBody?: any;
   timestamp?: string;
   name?: string;
-  [key: string]: string | Record<string, unknown> | undefined;
+  [key: string]: any;
 };
 
 export default function handler(

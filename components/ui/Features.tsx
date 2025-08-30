@@ -1,5 +1,5 @@
 import React from 'react';
-import { Terminal, BarChart2, BookOpen, Database, Shield, RefreshCw } from 'lucide-react';
+import { Terminal, BarChart2, BookOpen, Database, Shield, Zap, RefreshCw, Globe } from 'lucide-react';
 
 const Features = () => {
   return (

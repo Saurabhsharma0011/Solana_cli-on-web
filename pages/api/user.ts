@@ -5,10 +5,10 @@ type ResponseData = {
   name?: string;
   status?: string;
   success?: boolean;
-  data?: Record<string, unknown>;
+  data?: any;
   error?: string;
   timestamp?: string;
-  [key: string]: string | boolean | Record<string, unknown> | undefined;
+  [key: string]: any;
 };
 
 export default function handler(

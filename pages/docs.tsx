@@ -49,6 +49,10 @@ export default function DocsPage() {
                     <ChevronRight size={16} className="mr-2" />
                     Web3.js Examples
                   </a>
+                  <a href="#smart-contracts" className="flex items-center text-gray-300 hover:text-purple-400 transition-colors py-2 px-3 hover:bg-[#0F172A] rounded-md">
+                    <ChevronRight size={16} className="mr-2" />
+                    Smart Contracts
+                  </a>
                   <a href="#advanced" className="flex items-center text-gray-300 hover:text-purple-400 transition-colors py-2 px-3 hover:bg-[#0F172A] rounded-md">
                     <ChevronRight size={16} className="mr-2" />
                     Advanced Topics
@@ -217,6 +221,250 @@ solana slot --url https://api.devnet.solana.com`}
                   <Terminal size={16} className="mr-2" />
                   Try Commands in Terminal
                 </Link>
+              </div>
+              
+              <div id="smart-contracts" className="bg-[#1E293B] border border-[#334155] rounded-lg p-6 mb-8 mt-8">
+                <h2 className="text-2xl font-semibold mb-4">Solana Smart Contracts</h2>
+                <p className="text-gray-300 mb-6">
+                  Build, test, and deploy Solana smart contracts directly from your browser. Our integrated development environment 
+                  allows you to write Rust-based Solana programs and deploy them to the Solana blockchain.
+                </p>
+                
+                <h3 className="text-xl font-medium mb-4">Your First Smart Contract</h3>
+                <p className="text-gray-300 mb-4">
+                  Let&apos;s create a simple counter program that can be incremented or decremented through transactions.
+                </p>
+                
+                <div className="mb-6">
+                  <Tabs defaultValue="rust">
+                    <div className="flex items-center justify-between mb-2">
+                      <TabsList className="bg-[#0F172A] p-1 rounded-md">
+                        <TabsTrigger value="rust" className="px-3 py-1 rounded data-[state=active]:bg-purple-600 data-[state=active]:text-white">Rust</TabsTrigger>
+                        <TabsTrigger value="client" className="px-3 py-1 rounded data-[state=active]:bg-purple-600 data-[state=active]:text-white">Client</TabsTrigger>
+                      </TabsList>
+                      <div className="flex items-center space-x-2">
+                        <button className="text-gray-400 hover:text-white transition-colors">
+                          <Copy size={14} />
+                        </button>
+                        <Link href="/contracts">
+                          <button className="bg-purple-600 hover:bg-purple-700 transition-colors p-1 rounded">
+                            <Play size={14} />
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                    
+                    <TabsContent value="rust" className="bg-[#0B1120] p-4 rounded-md font-mono text-sm">
+                      <pre className="text-gray-300">
+{`// counter.rs - A simple Solana program
+
+use solana_program::{
+    account_info::{next_account_info, AccountInfo},
+    entrypoint,
+    entrypoint::ProgramResult,
+    msg,
+    pubkey::Pubkey,
+    program_error::ProgramError,
+};
+
+// Declare program entrypoint
+entrypoint!(process_instruction);
+
+// Program entrypoint implementation
+pub fn process_instruction(
+    program_id: &Pubkey,
+    accounts: &[AccountInfo],
+    instruction_data: &[u8],
+) -> ProgramResult {
+    msg!("Counter program entrypoint");
+    
+    // Get account iterator
+    let accounts_iter = &mut accounts.iter();
+    
+    // Get the account to update
+    let account = next_account_info(accounts_iter)?;
+    
+    // Verify account ownership
+    if account.owner != program_id {
+        msg!("Account does not have the correct program id");
+        return Err(ProgramError::IncorrectProgramId);
+    }
+    
+    // Get instruction type from the first byte
+    let instruction_type = instruction_data.get(0).ok_or(ProgramError::InvalidInstructionData)?;
+    
+    // Handle instructions
+    match instruction_type {
+        // Increment
+        0 => {
+            msg!("Incrementing counter");
+            let mut data = account.try_borrow_mut_data()?;
+            let counter = if data.len() >= 4 {
+                let bytes = [data[0], data[1], data[2], data[3]];
+                u32::from_le_bytes(bytes)
+            } else {
+                0
+            };
+            let new_counter = counter.checked_add(1).ok_or(ProgramError::InvalidInstructionData)?;
+            data[0..4].copy_from_slice(&new_counter.to_le_bytes());
+        },
+        // Decrement
+        1 => {
+            msg!("Decrementing counter");
+            let mut data = account.try_borrow_mut_data()?;
+            let counter = if data.len() >= 4 {
+                let bytes = [data[0], data[1], data[2], data[3]];
+                u32::from_le_bytes(bytes)
+            } else {
+                0
+            };
+            let new_counter = counter.checked_sub(1).ok_or(ProgramError::InvalidInstructionData)?;
+            data[0..4].copy_from_slice(&new_counter.to_le_bytes());
+        },
+        _ => {
+            msg!("Invalid instruction");
+            return Err(ProgramError::InvalidInstructionData);
+        }
+    }
+    
+    Ok(())
+}`}
+                      </pre>
+                    </TabsContent>
+                    
+                    <TabsContent value="client" className="bg-[#0B1120] p-4 rounded-md font-mono text-sm">
+                      <pre className="text-gray-300">
+{`// JavaScript client to interact with the counter program
+import { 
+  Connection, 
+  PublicKey,
+  Transaction,
+  TransactionInstruction,
+  sendAndConfirmTransaction,
+  Keypair
+} from '@solana/web3.js';
+
+// Connect to the Solana devnet
+const connection = new Connection('https://api.devnet.solana.com', 'confirmed');
+
+// Program ID (replace with your deployed program ID)
+const programId = new PublicKey('CounterProgramID111111111111111111111111111');
+
+// Counter account (replace with your counter account public key)
+const counterAccount = new PublicKey('CounterAccount1111111111111111111111111111');
+
+// Wallet for sending transactions
+const wallet = Keypair.generate(); // In a real app, this would be your wallet
+
+// Function to increment the counter
+async function incrementCounter() {
+  const instruction = new TransactionInstruction({
+    keys: [
+      { pubkey: counterAccount, isSigner: false, isWritable: true }
+    ],
+    programId,
+    data: Buffer.from([0]) // Instruction to increment (0)
+  });
+
+  const transaction = new Transaction().add(instruction);
+  const signature = await sendAndConfirmTransaction(
+    connection,
+    transaction,
+    [wallet]
+  );
+  
+  console.log('Increment transaction signature:', signature);
+  return signature;
+}
+
+// Function to decrement the counter
+async function decrementCounter() {
+  const instruction = new TransactionInstruction({
+    keys: [
+      { pubkey: counterAccount, isSigner: false, isWritable: true }
+    ],
+    programId,
+    data: Buffer.from([1]) // Instruction to decrement (1)
+  });
+
+  const transaction = new Transaction().add(instruction);
+  const signature = await sendAndConfirmTransaction(
+    connection,
+    transaction,
+    [wallet]
+  );
+  
+  console.log('Decrement transaction signature:', signature);
+  return signature;
+}
+
+// Function to read the current counter value
+async function getCounterValue() {
+  const accountInfo = await connection.getAccountInfo(counterAccount);
+  if (!accountInfo || !accountInfo.data) {
+    return 0;
+  }
+  
+  const counterValue = new DataView(accountInfo.data.buffer).getUint32(0, true);
+  console.log('Current counter value:', counterValue);
+  return counterValue;
+}`}
+                      </pre>
+                    </TabsContent>
+                  </Tabs>
+                </div>
+                
+                <div className="bg-purple-600/10 border border-purple-600/30 rounded-md p-4 mb-6">
+                  <h4 className="font-medium text-purple-400 mb-2">Try It Yourself</h4>
+                  <p className="text-sm text-gray-300">
+                    Head to our <Link href="/contracts" className="text-purple-400 hover:underline">Smart Contract IDE</Link> to write, 
+                    compile, and deploy your own Solana programs directly from your browser. 
+                    You can also test your contracts with our integrated tools.
+                  </p>
+                </div>
+                
+                <h3 className="text-xl font-medium mb-4">Smart Contract Templates</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                  <div className="border border-[#334155] rounded-md p-4 bg-[#0F172A] hover:border-purple-400/50 transition-colors">
+                    <h4 className="font-medium mb-2">Token Program</h4>
+                    <p className="text-sm text-gray-300 mb-3">
+                      Create your own SPL token with customizable features like mint authority, decimals, and more.
+                    </p>
+                    <Link href="/contracts?template=token" className="text-purple-400 hover:underline text-sm">
+                      Use Template →
+                    </Link>
+                  </div>
+                  
+                  <div className="border border-[#334155] rounded-md p-4 bg-[#0F172A] hover:border-purple-400/50 transition-colors">
+                    <h4 className="font-medium mb-2">NFT Minting</h4>
+                    <p className="text-sm text-gray-300 mb-3">
+                      A program for creating and minting NFTs on Solana with Metaplex integration.
+                    </p>
+                    <Link href="/contracts?template=nft" className="text-purple-400 hover:underline text-sm">
+                      Use Template →
+                    </Link>
+                  </div>
+                  
+                  <div className="border border-[#334155] rounded-md p-4 bg-[#0F172A] hover:border-purple-400/50 transition-colors">
+                    <h4 className="font-medium mb-2">Staking Program</h4>
+                    <p className="text-sm text-gray-300 mb-3">
+                      Create a staking program with rewards distribution and locking periods.
+                    </p>
+                    <Link href="/contracts?template=staking" className="text-purple-400 hover:underline text-sm">
+                      Use Template →
+                    </Link>
+                  </div>
+                  
+                  <div className="border border-[#334155] rounded-md p-4 bg-[#0F172A] hover:border-purple-400/50 transition-colors">
+                    <h4 className="font-medium mb-2">Escrow Service</h4>
+                    <p className="text-sm text-gray-300 mb-3">
+                      Build a secure escrow service for trustless transactions between parties.
+                    </p>
+                    <Link href="/contracts?template=escrow" className="text-purple-400 hover:underline text-sm">
+                      Use Template →
+                    </Link>
+                  </div>
+                </div>
               </div>
               
               <div className="mt-16 p-4 border border-yellow-500/30 bg-yellow-500/10 rounded-lg">

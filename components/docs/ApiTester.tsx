@@ -4,7 +4,7 @@ import { Send, ChevronDown, ChevronUp, Copy } from 'lucide-react';
 type HttpMethod = 'GET' | 'POST';
 
 interface ApiResponse {
-  data: Record<string, unknown>;
+  data: any;
   status: number;
   time: number;
 }
@@ -39,7 +39,7 @@ const ApiTester: React.FC = () => {
       let headersObj = {};
       try {
         headersObj = JSON.parse(requestHeaders);
-      } catch {
+      } catch (e) {
         throw new Error('Invalid JSON in request headers');
       }
       
@@ -54,7 +54,7 @@ const ApiTester: React.FC = () => {
         try {
           const bodyObj = JSON.parse(requestBody);
           options.body = JSON.stringify(bodyObj);
-        } catch {
+        } catch (e) {
           throw new Error('Invalid JSON in request body');
         }
       }
@@ -67,7 +67,7 @@ const ApiTester: React.FC = () => {
       let data;
       try {
         data = await res.json();
-      } catch {
+      } catch (e) {
         data = { message: 'Response is not valid JSON' };
       }
       

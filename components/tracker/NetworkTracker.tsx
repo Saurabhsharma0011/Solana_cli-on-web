@@ -10,6 +10,7 @@ const NetworkTracker = () => {
     lastUpdated: ''
   });
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchSolanaPrice = async () => {
@@ -17,8 +18,10 @@ const NetworkTracker = () => {
         setIsLoading(true);
         const price = await getSolanaPrice();
         setSolPrice(price);
+        setError(null);
       } catch (err) {
         console.error('Error fetching Solana price:', err);
+        setError('Failed to fetch price data');
       } finally {
         setIsLoading(false);
       }

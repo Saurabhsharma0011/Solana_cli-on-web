@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Menu, X, ChevronDown, Terminal, BarChart2, BookOpen, Database, Github, ExternalLink, Check } from 'lucide-react';
-import { getWalletBalance, getEnhancedTransactions, EnhancedTransactionData } from '../../services/heliusService';
+import { Menu, X, ChevronDown, Terminal, BarChart2, BookOpen, Database, Github, ExternalLink, Check, Wallet } from 'lucide-react';
+import { getWalletBalance, getEnhancedTransactions } from '../../services/heliusService';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +14,7 @@ const Navbar = () => {
   const [displayAddress, setDisplayAddress] = useState('');
   const [walletBalance, setWalletBalance] = useState(0);
   const [isLoadingBalance, setIsLoadingBalance] = useState(false);
-  const [transactions, setTransactions] = useState<EnhancedTransactionData[]>([]);
+  const [transactions, setTransactions] = useState<any[]>([]);
 
   const networkMenuRef = useRef<HTMLDivElement>(null);
   const walletMenuRef = useRef<HTMLDivElement>(null);
@@ -67,7 +67,7 @@ const Navbar = () => {
 
       fetchWalletData();
     }
-  }, [selectedNetwork, walletConnected, walletAddress]);
+  }, [selectedNetwork]);
 
   // Close menus when clicking outside
   useEffect(() => {
@@ -156,7 +156,7 @@ const Navbar = () => {
   };
 
   // Helper to determine transaction type
-  const getTransactionType = (tx: EnhancedTransactionData) => {
+  const getTransactionType = (tx: any) => {
     if (!tx) return 'Unknown';
     
     // Simple detection logic - can be expanded
@@ -280,7 +280,7 @@ const Navbar = () => {
                         >
                           <div className="flex justify-between items-center">
                             <span className="text-sm">{getTransactionType(tx)}</span>
-                            <span className="text-xs text-gray-400">{formatDate(tx.blockTime || Date.now()/1000)}</span>
+                            <span className="text-xs text-gray-400">{formatDate(tx.timestamp || Date.now()/1000)}</span>
                           </div>
                           <div className="text-xs text-gray-500 truncate mt-1">
                             {tx.signature.substring(0, 8)}...{tx.signature.substring(tx.signature.length - 8)}
@@ -402,7 +402,7 @@ const Navbar = () => {
                         >
                           <div className="flex justify-between items-center">
                             <span className="text-sm">{getTransactionType(tx)}</span>
-                            <span className="text-xs text-gray-400">{formatDate(tx.blockTime || Date.now()/1000)}</span>
+                            <span className="text-xs text-gray-400">{formatDate(tx.timestamp || Date.now()/1000)}</span>
                           </div>
                         </a>
                       ))}
