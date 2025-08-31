@@ -131,7 +131,7 @@ const Terminal = () => {
         <div><span className="text-purple-400">solana-keygen pubkey</span> - Show public key</div>
         <div><span className="text-purple-400">solana-keygen export</span> - Export keypair for wallet import</div>
         <div className="flex items-center">
-          <span className="text-purple-400 mr-2">sh -c "curl -sSfL https://release.solana.com/stable/install | sh"</span> - Install Solana CLI
+          <span className="text-purple-400 mr-2">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</span> - Install Solana CLI
           <CommandWithCopy command='sh -c "curl -sSfL https://release.solana.com/stable/install | sh"' className="ml-2" />
         </div>
         <div><span className="text-purple-400">apt-get install solana-cli</span> - Install Solana CLI on Debian/Ubuntu</div>
@@ -900,7 +900,7 @@ const Terminal = () => {
       if (!token) {
         return (
           <div className="text-red-400">
-            Error: Unknown token: {tokenSymbol}. Use the 'tokens' command to see available tokens.
+            Error: Unknown token: {tokenSymbol}. Use the &apos;tokens&apos; command to see available tokens.
           </div>
         );
       }
@@ -1013,7 +1013,7 @@ const Terminal = () => {
       if (!order) {
         return (
           <div className="text-red-400">
-            Error: Order not found or not active. Use 'marketplace orders' to see available orders.
+            Error: Order not found or not active. Use &apos;marketplace orders&apos; to see available orders.
           </div>
         );
       }
@@ -1217,7 +1217,7 @@ const Terminal = () => {
       if (!order) {
         return (
           <div className="text-red-400">
-            Error: Order not found or not active. Use 'marketplace orders' to see available orders.
+            Error: Order not found or not active. Use &apos;marketplace orders&apos; to see available orders.
           </div>
         );
       }
@@ -1338,7 +1338,7 @@ const Terminal = () => {
       if (!order) {
         return (
           <div className="text-red-400">
-            Error: Order not found or not active. Use 'marketplace orders' to see available orders.
+            Error: Order not found or not active. Use &apos;marketplace orders&apos; to see available orders.
           </div>
         );
       }
@@ -1451,7 +1451,6 @@ const Terminal = () => {
     
     // Extract command and arguments
     const parts = normalizedCmd.split(' ');
-    const baseCmd = parts[0];
     const args = parts.slice(1).join(' ');
     
     // Special case for solana-keygen
@@ -1530,12 +1529,12 @@ const Terminal = () => {
     if (cmdLower.includes('brew') && cmdLower.includes('install') && cmdLower.includes('solana')) {
       const output = (
         <div className="space-y-1">
-          <div className="text-gray-400">==&gt; Downloading https://github.com/solana-labs/solana/releases/download/v1.17.5/solana-release-x86_64-apple-darwin.tar.bz2</div>
-          <div className="text-gray-400">==&gt; Downloading from https://github-releases.githubusercontent.com/solana-release-x86_64-apple-darwin.tar.bz2</div>
+          <div className="text-gray-400">==&amp;gt; Downloading https://github.com/solana-labs/solana/releases/download/v1.17.5/solana-release-x86_64-apple-darwin.tar.bz2</div>
+          <div className="text-gray-400">==&amp;gt; Downloading from https://github-releases.githubusercontent.com/solana-release-x86_64-apple-darwin.tar.bz2</div>
           <div className="text-gray-400">######################################################################## 100.0%</div>
-          <div className="text-gray-400">==&gt; Installing solana</div>
-          <div className="text-gray-400">==&gt; Caveats</div>
-          <div className="text-gray-400">Homebrew's post-install process has been completed</div>
+          <div className="text-gray-400">==&amp;gt; Installing solana</div>
+          <div className="text-gray-400">==&amp;gt; Caveats</div>
+          <div className="text-gray-400">Homebrew&apos;s post-install process has been completed</div>
           <div className="text-green-400 mt-2 font-semibold">Solana CLI installed successfully!</div>
           <div className="text-gray-400 mt-1">To verify installation, run: <span className="text-yellow-300">solana --version</span></div>
         </div>

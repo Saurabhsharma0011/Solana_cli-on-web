@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Terminal, BarChart2, BookOpen, Database, ArrowRight, Copy, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 import Typewriter from 'typewriter-effect';
@@ -131,50 +131,6 @@ const CopyButton = ({ text }: { text: string }) => {
   );
 };
 
-const TerminalCommand = ({ command, output }: { command: string; output: string }) => {
-  const [isTyping, setIsTyping] = useState(true);
-  const [showOutput, setShowOutput] = useState(false);
-  
-  useEffect(() => {
-    // Show output after typing is complete with a slight delay
-    if (!isTyping) {
-      const timer = setTimeout(() => {
-        setShowOutput(true);
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  }, [isTyping]);
-  
-  return (
-    <div className="mb-4">
-      <div className="flex items-center text-green-400 mb-1">
-        <ArrowRight size={16} className="mr-1 text-purple-400" />
-        <div className="font-mono">
-          <Typewriter
-            onInit={(typewriter) => {
-              typewriter
-                .typeString(command)
-                .callFunction(() => {
-                  setIsTyping(false);
-                })
-                .start();
-            }}
-            options={{
-              delay: 50,
-              cursor: ''
-            }}
-          />
-        </div>
-        {!isTyping && <CopyButton text={command} />}
-      </div>
-      {showOutput && (
-        <div className="pl-6 text-gray-300 opacity-0 animate-fadeIn">
-          {output}
-        </div>
-      )}
-    </div>
-  );
-};
 
 const Hero = () => {
   return (

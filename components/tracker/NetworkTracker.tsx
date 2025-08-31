@@ -10,7 +10,7 @@ const NetworkTracker = () => {
     lastUpdated: ''
   });
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchSolanaPrice = async () => {

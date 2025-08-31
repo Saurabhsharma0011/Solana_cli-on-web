@@ -5,10 +5,11 @@ type ResponseData = {
   name?: string;
   status?: string;
   success?: boolean;
-  data?: any;
+  data?: Record<string, unknown>;
   error?: string;
   timestamp?: string;
-  [key: string]: any;
+  message?: string;
+  [key: string]: unknown;
 };
 
 export default function handler(

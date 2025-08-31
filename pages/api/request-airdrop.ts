@@ -70,10 +70,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       network,
       message: `Successfully airdropped ${airdropAmount / LAMPORTS_PER_SOL} SOL to ${address}`
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error performing airdrop:', error);
     return res.status(500).json({ 
-      error: error.message || 'Failed to perform airdrop' 
+      error: error instanceof Error ? error.message : 'Failed to perform airdrop' 
     });
   }
 }
