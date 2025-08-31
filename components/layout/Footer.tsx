@@ -22,7 +22,7 @@ const Footer = () => {
               <a href="https://github.com/nex4-network" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github size={20} className="text-gray-400 hover:text-white transition-colors" />
               </a>
-              <a href="https://twitter.com/nex4_network" target="x.com/nex4dev" rel="noopener noreferrer" aria-label="Twitter">
+              <a href="https://x.com/nex4dev?s=21" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <Twitter size={20} className="text-gray-400 hover:text-white transition-colors" />
               </a>
             </div>

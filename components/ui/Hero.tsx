@@ -1,11 +1,185 @@
-import React from 'react';
-import { Terminal, BarChart2, BookOpen, Database, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Terminal, BarChart2, BookOpen, Database, ArrowRight, Copy, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 import Typewriter from 'typewriter-effect';
+
+// Add styles for the fadeIn animation and underline effect
+const styles = `
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+@keyframes underlineGrow {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.cmd-underline {
+  position: relative;
+}
+.cmd-underline:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #8B5CF6;
+  animation: underlineGrow 0.8s ease-in-out forwards;
+  animation-delay: 2.5s;
+}
+
+/* Glowing effect styles */
+.glow-container {
+  position: relative;
+  overflow: hidden;
+}
+.glow-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
+                              rgba(99, 102, 241, 0.12) 0%, 
+                              rgba(168, 85, 247, 0.08) 25%, 
+                              rgba(236, 72, 153, 0.04) 50%, 
+                              rgba(14, 165, 233, 0.02) 75%, 
+                              transparent 100%);
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  pointer-events: none;
+  animation: glowPulse 8s infinite alternate;
+  transform: translate(-50%, -50%);
+  width: 200%;
+  height: 200%;
+  z-index: 0;
+}
+
+@keyframes glowPulse {
+  0% {
+    opacity: 0.1;
+    --x: 20%;
+    --y: 80%;
+    background: radial-gradient(circle at var(--x) var(--y), 
+                                rgba(99, 102, 241, 0.15) 0%, 
+                                rgba(99, 102, 241, 0.08) 30%, 
+                                transparent 70%);
+  }
+  25% {
+    opacity: 0.2;
+    --x: 80%;
+    --y: 20%;
+    background: radial-gradient(circle at var(--x) var(--y), 
+                                rgba(168, 85, 247, 0.15) 0%, 
+                                rgba(168, 85, 247, 0.08) 30%, 
+                                transparent 70%);
+  }
+  50% {
+    opacity: 0.15;
+    --x: 30%;
+    --y: 50%;
+    background: radial-gradient(circle at var(--x) var(--y), 
+                                rgba(14, 165, 233, 0.15) 0%, 
+                                rgba(14, 165, 233, 0.08) 30%, 
+                                transparent 70%);
+  }
+  75% {
+    opacity: 0.18;
+    --x: 70%;
+    --y: 60%;
+    background: radial-gradient(circle at var(--x) var(--y), 
+                                rgba(236, 72, 153, 0.15) 0%, 
+                                rgba(236, 72, 153, 0.08) 30%, 
+                                transparent 70%);
+  }
+  100% {
+    opacity: 0.1;
+    --x: 50%;
+    --y: 30%;
+    background: radial-gradient(circle at var(--x) var(--y), 
+                                rgba(99, 102, 241, 0.15) 0%, 
+                                rgba(99, 102, 241, 0.08) 30%, 
+                                transparent 70%);
+  }
+}
+`;
+
+const CopyButton = ({ text }: { text: string }) => {
+  const [copied, setCopied] = useState(false);
+  
+  const handleCopy = () => {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <button
+      onClick={handleCopy}
+      className="ml-2 p-1 rounded hover:bg-gray-700 transition-colors"
+      title="Copy to clipboard"
+    >
+      {copied ? 
+        <CheckCircle className="h-4 w-4 text-green-400" /> :
+        <Copy className="h-4 w-4 text-gray-400 hover:text-white" />
+      }
+    </button>
+  );
+};
+
+const TerminalCommand = ({ command, output }: { command: string; output: string }) => {
+  const [isTyping, setIsTyping] = useState(true);
+  const [showOutput, setShowOutput] = useState(false);
+  
+  useEffect(() => {
+    // Show output after typing is complete with a slight delay
+    if (!isTyping) {
+      const timer = setTimeout(() => {
+        setShowOutput(true);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [isTyping]);
+  
+  return (
+    <div className="mb-4">
+      <div className="flex items-center text-green-400 mb-1">
+        <ArrowRight size={16} className="mr-1 text-purple-400" />
+        <div className="font-mono">
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter
+                .typeString(command)
+                .callFunction(() => {
+                  setIsTyping(false);
+                })
+                .start();
+            }}
+            options={{
+              delay: 50,
+              cursor: ''
+            }}
+          />
+        </div>
+        {!isTyping && <CopyButton text={command} />}
+      </div>
+      {showOutput && (
+        <div className="pl-6 text-gray-300 opacity-0 animate-fadeIn">
+          {output}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const Hero = () => {
   return (
     <div className="bg-[#0B1120] text-white py-16 md:py-24">
+      <style dangerouslySetInnerHTML={{ __html: styles }} />
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column: Text Content */}
@@ -111,43 +285,49 @@ const Hero = () => {
             </div>
             
             {/* Terminal Content */}
-            <div className="p-4 font-mono text-sm">
-              <div className="text-green-400 mb-3">Welcome to NEX4 Terminal</div>
-              
-              <div className="mb-3">
-                <div className="flex items-center text-green-400 mb-1">
-                  <ArrowRight size={16} className="mr-1" />
-                  <span>solana balance</span>
-                </div>
-                <div className="pl-6 text-gray-300">Balance: 1000.000000000 SOL</div>
+            <div className="p-8 font-mono text-sm bg-[#0F172A] h-[280px] overflow-hidden flex flex-col justify-center relative glow-container">
+              <div className="text-gray-400 mb-8 text-base relative z-10">
+                <span className="text-purple-400 font-semibold">NEX4</span> is available as an npm package:
               </div>
               
-              <div className="mb-3">
-                <div className="flex items-center text-green-400 mb-1">
-                  <ArrowRight size={16} className="mr-1" />
-                  <span>solana slot</span>
+              <div className="mb-6 relative z-10">
+                <div className="flex items-center text-green-400 mb-4">
+                  <ArrowRight size={16} className="mr-2 text-purple-400" />
+                  <div className="text-base cmd-underline">
+                    <Typewriter
+                      onInit={(typewriter) => {
+                        typewriter
+                          .typeString("npm install nex4dev")
+                          .start();
+                      }}
+                      options={{
+                        delay: 70,
+                        cursor: ''
+                      }}
+                    />
+                  </div>
+                  <CopyButton text="npm install nex4dev" />
                 </div>
-                <div className="pl-6 text-gray-300">Current Slot: 149891349</div>
+                
+                <div className="bg-[#1A2234] p-5 rounded-md border border-[#2D3648] text-gray-300">
+                  <div className="flex items-center mb-3">
+                    <div className="mr-2 text-purple-400">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"></path>
+                        <path d="M12 16v-4"></path>
+                        <path d="M12 8h.01"></path>
+                      </svg>
+                    </div>
+                    <div className="font-medium text-white">The complete toolkit for Solana development</div>
+                  </div>
+                  <div className="text-sm ml-7">
+                    Build, deploy, and test Solana applications with our enterprise-grade SDK.
+                  </div>
+                </div>
               </div>
               
-              <div className="mb-3">
-                <div className="flex items-center text-green-400 mb-1">
-                  <ArrowRight size={16} className="mr-1" />
-                  <span>solana epoch-info</span>
-                </div>
-                <div className="pl-6 text-gray-300">
-                  <div>Current Epoch: 347</div>
-                  <div>Slot: 149891349</div>
-                  <div>Slots in Epoch: 432000</div>
-                  <div>Epoch Progress: 94.7%</div>
-                </div>
-              </div>
-              
-              <div>
-                <div className="flex items-center text-green-400">
-                  <ArrowRight size={16} className="mr-1" />
-                  <span className="animate-pulse">_</span>
-                </div>
+              <div className="text-gray-500 text-xs relative z-10">
+                Supports all major package managers - npm, yarn, and pnpm
               </div>
             </div>
           </div>
