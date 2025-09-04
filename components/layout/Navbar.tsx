@@ -169,35 +169,37 @@ const Navbar = () => {
   };
   
   return (
-    <nav className="bg-[#0F172A] text-white py-4 px-6 sticky top-0 z-50 border-b border-[#1E293B]">
+    <nav className="bg-[#0B1120] text-white py-4 px-6 sticky top-0 z-50 border-b border-[#2FFFD1]">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <div className="flex items-center justify-center">
-            <Image src="/Nnewlogo.png" alt="Nex4 Logo" width={40} height={40} className="rounded-full" />
-          </div>
-          <span className="font-bold text-xl">Nex4</span>
+          <Link href="/" className="flex items-center space-x-2 cursor-pointer">
+            <div className="flex items-center justify-center">
+              <Image src="/Nnewlogo.png" alt="Nex4 Logo" width={40} height={40} className="rounded-full" />
+            </div>
+            <span className="font-bold text-xl">Nex4</span>
+          </Link>
           <div 
-            className="hidden md:flex items-center ml-2 bg-[#1E293B] hover:bg-[#334155] text-xs px-2 py-0.5 rounded cursor-pointer relative"
+            className="hidden md:flex items-center ml-2 bg-[#071118] hover:bg-[#0B1120] text-xs px-2 py-0.5 rounded cursor-pointer relative border border-[#2FFFD1]"
             onClick={toggleNetworkMenu}
             ref={networkMenuRef}
           >
-            <span className={selectedNetwork === 'mainnet' ? "text-green-400" : "text-yellow-400"}>
+            <span className={selectedNetwork === 'mainnet' ? "text-[#2FFFD1]" : "text-yellow-400"}>
               {selectedNetwork === 'mainnet' ? 'MAINNET' : 'DEVNET'}
             </span>
             <ChevronDown size={14} />
             
             {networkMenuOpen && (
-              <div className="absolute top-full left-0 mt-1 bg-[#1E293B] border border-[#334155] rounded shadow-lg w-32 z-50">
+              <div className="absolute top-full left-0 mt-1 bg-[#071118] border border-[#2FFFD1] rounded shadow-lg w-32 z-50">
                 <div 
-                  className="flex items-center justify-between px-3 py-2 hover:bg-[#334155] cursor-pointer"
+                  className="flex items-center justify-between px-3 py-2 hover:bg-[#0B1120] cursor-pointer"
                   onClick={() => selectNetwork('mainnet')}
                 >
-                  <span className="text-green-400">MAINNET</span>
-                  {selectedNetwork === 'mainnet' && <Check size={14} className="text-green-400" />}
+                  <span className="text-[#2FFFD1]">MAINNET</span>
+                  {selectedNetwork === 'mainnet' && <Check size={14} className="text-[#2FFFD1]" />}
                 </div>
                 <div 
-                  className="flex items-center justify-between px-3 py-2 hover:bg-[#334155] cursor-pointer"
+                  className="flex items-center justify-between px-3 py-2 hover:bg-[#0B1120] cursor-pointer"
                   onClick={() => selectNetwork('devnet')}
                 >
                   <span className="text-yellow-400">DEVNET</span>
@@ -210,19 +212,19 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link href="/terminal" className="flex items-center space-x-1 hover:text-purple-400 transition-colors">
+          <Link href="/terminal" className="flex items-center space-x-1 hover:text-[#2FFFD1] transition-colors">
             <Terminal size={16} />
             <span>Terminal</span>
           </Link>
-          <Link href="/tracker" className="flex items-center space-x-1 hover:text-purple-400 transition-colors">
+          <Link href="/tracker" className="flex items-center space-x-1 hover:text-[#2FFFD1] transition-colors">
             <BarChart2 size={16} />
             <span>Network Tracker</span>
           </Link>
-          <Link href="/docs" className="flex items-center space-x-1 hover:text-purple-400 transition-colors">
+          <Link href="/docs" className="flex items-center space-x-1 hover:text-[#2FFFD1] transition-colors">
             <BookOpen size={16} />
             <span>Docs</span>
           </Link>
-          <Link href="/explorer" className="flex items-center space-x-1 hover:text-purple-400 transition-colors">
+          <Link href="/explorer" className="flex items-center space-x-1 hover:text-[#2FFFD1] transition-colors">
             <Database size={16} />
             <span>Explorer</span>
           </Link>
@@ -237,7 +239,7 @@ const Navbar = () => {
           {!walletConnected ? (
             <button 
               onClick={connectWallet}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center"
+              className="bg-[#2FFFD1] hover:bg-[#20D6AE] text-[#0B1120] px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center"
             >
               <Image src="/phantom.svg" width={20} height={20} alt="Phantom" className="mr-2 rounded-full" />
               Connect Phantom
@@ -246,7 +248,7 @@ const Navbar = () => {
             <div className="relative" ref={walletMenuRef}>
               <button 
                 onClick={toggleWalletMenu}
-                className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center"
+                className="bg-[#2FFFD1] hover:bg-[#20D6AE] text-[#0B1120] px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center"
               >
                 <Image src="/phantom.svg" width={20} height={20} alt="Phantom" className="mr-2 rounded-full" />
                 {displayAddress}
@@ -254,8 +256,8 @@ const Navbar = () => {
               </button>
               
               {walletMenuOpen && (
-                <div className="absolute top-full right-0 mt-1 bg-[#1E293B] border border-[#334155] rounded shadow-lg w-80 z-50">
-                  <div className="px-3 py-2 border-b border-[#334155]">
+                <div className="absolute top-full right-0 mt-1 bg-[#071118] border border-[#2FFFD1] rounded shadow-lg w-80 z-50">
+                  <div className="px-3 py-2 border-b border-[#2FFFD1]">
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-gray-400 text-sm">Wallet Balance</span>
                       {isLoadingBalance ? (
@@ -276,7 +278,7 @@ const Navbar = () => {
                           href={`https://explorer.solana.com/tx/${tx.signature}${selectedNetwork === 'devnet' ? '?cluster=devnet' : ''}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3 py-2 hover:bg-[#334155] block border-t border-[#334155]"
+                          className="px-3 py-2 hover:bg-[#0B1120] block border-t border-[#2FFFD1]"
                         >
                           <div className="flex justify-between items-center">
                             <span className="text-sm">{getTransactionType(tx)}</span>
@@ -290,18 +292,18 @@ const Navbar = () => {
                     </div>
                   )}
                   
-                  <div className="border-t border-[#334155]">
+                  <div className="border-t border-[#2FFFD1]">
                     <a 
                       href={`https://explorer.solana.com/address/${walletAddress}${selectedNetwork === 'devnet' ? '?cluster=devnet' : ''}`} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center justify-between px-3 py-2 hover:bg-[#334155] cursor-pointer"
+                      className="flex items-center justify-between px-3 py-2 hover:bg-[#0B1120] cursor-pointer"
                     >
                       <span>View on Explorer</span>
                       <ExternalLink size={14} />
                     </a>
                     <div 
-                      className="flex items-center px-3 py-2 hover:bg-[#334155] cursor-pointer text-red-400"
+                      className="flex items-center px-3 py-2 hover:bg-[#0B1120] cursor-pointer text-red-400"
                       onClick={disconnectWallet}
                     >
                       Disconnect
@@ -323,34 +325,34 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-[#0F172A] pt-4 pb-6 px-6 absolute top-16 left-0 right-0 border-b border-[#1E293B]">
+        <div className="md:hidden bg-[#0B1120] pt-4 pb-6 px-6 absolute top-16 left-0 right-0 border-b border-[#2FFFD1]">
           <div className="flex flex-col space-y-4">
-            <Link href="/terminal" className="flex items-center space-x-2 hover:text-purple-400 transition-colors py-2">
+            <Link href="/terminal" className="flex items-center space-x-2 hover:text-[#2FFFD1] transition-colors py-2">
               <Terminal size={18} />
               <span>Terminal</span>
             </Link>
-            <Link href="/tracker" className="flex items-center space-x-2 hover:text-purple-400 transition-colors py-2">
+            <Link href="/tracker" className="flex items-center space-x-2 hover:text-[#2FFFD1] transition-colors py-2">
               <BarChart2 size={18} />
               <span>Network Tracker</span>
             </Link>
-            <Link href="/docs" className="flex items-center space-x-2 hover:text-purple-400 transition-colors py-2">
+            <Link href="/docs" className="flex items-center space-x-2 hover:text-[#2FFFD1] transition-colors py-2">
               <BookOpen size={18} />
               <span>Docs</span>
             </Link>
-            <Link href="/explorer" className="flex items-center space-x-2 hover:text-purple-400 transition-colors py-2">
+            <Link href="/explorer" className="flex items-center space-x-2 hover:text-[#2FFFD1] transition-colors py-2">
               <Database size={18} />
               <span>Explorer</span>
             </Link>
             
-            <div className="py-2 border-t border-[#1E293B]">
+            <div className="py-2 border-t border-[#334155]">
               <div className="text-sm text-gray-400 mb-2">Network</div>
               <div className="grid grid-cols-2 gap-2">
                 <button
                   onClick={() => selectNetwork('mainnet')}
                   className={`flex items-center justify-center px-3 py-2 rounded border ${
                     selectedNetwork === 'mainnet'
-                      ? 'border-green-500 bg-green-500/10 text-green-400'
-                      : 'border-[#334155] hover:bg-[#334155]'
+                      ? 'border-[#2FFFD1] bg-[#2FFFD1]/10 text-[#2FFFD1]'
+                      : 'border-[#2FFFD1] hover:bg-[#0B1120]'
                   }`}
                 >
                   MAINNET
@@ -360,7 +362,7 @@ const Navbar = () => {
                   className={`flex items-center justify-center px-3 py-2 rounded border ${
                     selectedNetwork === 'devnet'
                       ? 'border-yellow-500 bg-yellow-500/10 text-yellow-400'
-                      : 'border-[#334155] hover:bg-[#334155]'
+                      : 'border-[#2FFFD1] hover:bg-[#0B1120]'
                   }`}
                 >
                   DEVNET
@@ -372,14 +374,14 @@ const Navbar = () => {
               {!walletConnected ? (
                 <button 
                   onClick={connectWallet}
-                  className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors w-full flex items-center justify-center"
+                  className="bg-[#2FFFD1] hover:bg-[#20D6AE] text-[#0B1120] px-4 py-2 rounded-lg text-sm font-medium transition-colors w-full flex items-center justify-center"
                 >
                   <Image src="/phantom.svg" width={20} height={20} alt="Phantom" className="mr-2 rounded-full" />
                   Connect Phantom
                 </button>
               ) : (
                 <div className="space-y-2">
-                  <div className="bg-[#1E293B] text-white p-3 rounded-lg text-sm">
+                  <div className="bg-[#071118] text-white p-3 rounded-lg text-sm border border-[#2FFFD1]">
                     <div className="flex justify-between items-center mb-2">
                       <span>Wallet</span>
                       <span className="font-medium">{formatSol(walletBalance)} SOL</span>
@@ -390,7 +392,7 @@ const Navbar = () => {
                   </div>
                   
                   {transactions.length > 0 && (
-                    <div className="bg-[#1E293B] p-3 rounded-lg max-h-60 overflow-y-auto">
+                    <div className="bg-[#071118] p-3 rounded-lg max-h-60 overflow-y-auto border border-[#2FFFD1]">
                       <div className="text-sm mb-2">Recent Transactions</div>
                       {transactions.slice(0, 3).map((tx, index) => (
                         <a 
@@ -398,7 +400,7 @@ const Navbar = () => {
                           href={`https://explorer.solana.com/tx/${tx.signature}${selectedNetwork === 'devnet' ? '?cluster=devnet' : ''}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block py-2 border-t border-[#334155]"
+                          className="block py-2 border-t border-[#2FFFD1]"
                         >
                           <div className="flex justify-between items-center">
                             <span className="text-sm">{getTransactionType(tx)}</span>
@@ -414,13 +416,13 @@ const Navbar = () => {
                       href={`https://explorer.solana.com/address/${walletAddress}${selectedNetwork === 'devnet' ? '?cluster=devnet' : ''}`} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center bg-[#1E293B] hover:bg-[#334155] text-white px-2 py-2 rounded text-xs"
+                      className="flex items-center justify-center bg-[#2FFFD1] hover:bg-[#20D6AE] text-[#0B1120] px-2 py-2 rounded text-xs"
                     >
                       View on Explorer
                     </a>
                     <button 
                       onClick={disconnectWallet}
-                      className="bg-[#1E293B] hover:bg-[#334155] text-red-400 px-2 py-2 rounded text-xs"
+                      className="bg-[#071118] hover:bg-[#0B1120] text-red-400 px-2 py-2 rounded text-xs border border-red-400"
                     >
                       Disconnect
                     </button>

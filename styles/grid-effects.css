@@ -1,0 +1,123 @@
+/* Premium grid effect animations */
+@keyframes gridPulse {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+
+@keyframes gridPulse2 {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes gridLineFade {
+  0% {
+    stroke-opacity: 0.05;
+  }
+  50% {
+    stroke-opacity: 0.15;
+  }
+  100% {
+    stroke-opacity: 0.05;
+  }
+}
+
+@keyframes gridPointPulse {
+  0% {
+    r: 1;
+    opacity: 0.3;
+  }
+  50% {
+    r: 1.5;
+    opacity: 0.7;
+  }
+  100% {
+    r: 1;
+    opacity: 0.3;
+  }
+}
+
+.grid-dot {
+  animation: gridPointPulse 3s infinite ease-in-out;
+}
+
+.grid-dot:nth-child(3n) {
+  animation-delay: 0.5s;
+}
+
+.grid-dot:nth-child(3n+1) {
+  animation-delay: 1s;
+}
+
+.grid-dot:nth-child(5n) {
+  animation-delay: 1.5s;
+}
+
+.grid-dot:nth-child(7n) {
+  animation-delay: 2s;
+}
+
+.grid-line {
+  animation: gridLineFade 8s infinite ease-in-out;
+}
+
+.grid-line:nth-child(3n) {
+  animation-delay: 2s;
+}
+
+.grid-line:nth-child(5n) {
+  animation-delay: 4s;
+}
+
+.grid-cell {
+  animation: gridPulse 6s infinite ease-in-out;
+}
+
+.grid-cell:nth-child(2n) {
+  animation: gridPulse2 6s infinite ease-in-out;
+  animation-delay: 2s;
+}
+
+.grid-cell:nth-child(3n) {
+  animation-delay: 1s;
+}
+
+.grid-cell:nth-child(5n) {
+  animation-delay: 3s;
+}
+
+.glow-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%), 
+    rgba(139, 92, 246, 0.15) 0%, 
+    rgba(139, 92, 246, 0.05) 25%, 
+    rgba(139, 92, 246, 0.02) 50%, 
+    transparent 80%
+  );
+  pointer-events: none;
+  z-index: 1;
+}

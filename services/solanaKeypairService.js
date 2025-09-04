@@ -1,8 +1,8 @@
-const { generateKeypair } = require('@solana/web3.js');
+const { Keypair } = require('@solana/web3.js');
 
 function generateSolanaKeypair() {
   try {
-    const keypair = generateKeypair();
+    const keypair = Keypair.generate();
     
     return {
       publicKey: keypair.publicKey.toString(),

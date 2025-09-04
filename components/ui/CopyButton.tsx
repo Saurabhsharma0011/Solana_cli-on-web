@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Copy, CheckCircle } from 'lucide-react';
+import { Copy, Check } from 'lucide-react';
 
 interface CopyButtonProps {
   text: string;
@@ -13,30 +13,26 @@ const CopyButton: React.FC<CopyButtonProps> = ({ text, className = '' }) => {
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
-      
-      // Reset copied state after 2 seconds
-      setTimeout(() => {
-        setCopied(false);
-      }, 2000);
-    } catch (error) {
-      console.error('Failed to copy text:', error);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
     }
   };
 
   return (
     <button
       onClick={handleCopy}
-      className={`inline-flex items-center justify-center p-1 rounded hover:bg-gray-700 transition-colors ${className}`}
-      title="Copy to clipboard"
+      className={`text-gray-400 hover:text-white transition-colors p-1 rounded-sm ${className}`}
       aria-label="Copy to clipboard"
     >
       {copied ? (
-        <CheckCircle size={14} className="text-green-400" />
+        <Check className="w-3.5 h-3.5 text-green-400" />
       ) : (
-        <Copy size={14} className="text-gray-400 hover:text-white" />
+        <Copy className="w-3.5 h-3.5" />
       )}
     </button>
   );
 };
 
 export default CopyButton;
+

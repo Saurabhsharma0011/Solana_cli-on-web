@@ -4,17 +4,17 @@ import { Github, Twitter, BookOpen, Terminal, Server, Code, ExternalLink } from 
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0F172A] text-white border-t border-[#1E293B] pt-10 pb-8">
-      <div className="max-w-7xl mx-auto px-6">
+    <footer className="bg-[#0B1120] text-white border-t border-[#2FFFD1] pt-10 pb-8">
+      <div className="max-w-[90%] xl:max-w-[1400px] mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and description */}
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                <span className="font-bold text-sm">N4</span>
+            <Link href="/" className="flex items-center space-x-2 mb-4">
+              <div className="w-10 h-10 rounded-full overflow-hidden">
+                <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="font-bold text-xl">Nex4</span>
-            </div>
+              <span className="font-bold text-xl">NEX4DEV</span>
+            </Link>
             <p className="text-gray-400 text-sm mb-4">
               A professional browser-based platform for Solana developers and researchers.
             </p>
@@ -88,8 +88,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-gray-300 hover:text-white text-sm">
-                  Privacy Policy
+                <Link href="/privacy" className="text-[#2FFFD1] hover:text-white text-sm flex items-center">
+                  <span className="relative">
+                    Privacy Policy
+                    <span className="absolute -top-1 -right-2 w-2 h-2 bg-[#2FFFD1] rounded-full"></span>
+                  </span>
                 </Link>
               </li>
               <li>
@@ -102,11 +105,26 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-[#1E293B] mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-xs mb-4 md:mb-0">
-            © {new Date().getFullYear()} Nex4 Network. All rights reserved.
-          </p>
-          <div className="text-gray-500 text-xs">
-            Built with 💜 for the Solana ecosystem
+          <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 mb-4 md:mb-0">
+            <p className="text-gray-500 text-xs">
+              © {new Date().getFullYear()} NEX4DEV. All rights reserved.
+            </p>
+            <div className="flex space-x-4 text-xs">
+              <Link href="/terms" className="text-gray-500 hover:text-[#2FFFD1] transition-colors">
+                Terms of Service
+              </Link>
+              <Link href="/privacy" className="text-gray-500 hover:text-[#2FFFD1] transition-colors">
+                Privacy Policy
+              </Link>
+            </div>
+          </div>
+          <div className="flex items-center space-x-2">
+            <span className="text-gray-500 text-xs">
+              Built for the Solana ecosystem
+            </span>
+            <div className="w-6 h-6 rounded-full overflow-hidden">
+              <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
+            </div>
           </div>
         </div>
       </div>

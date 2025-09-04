@@ -18,6 +18,7 @@ const ApiTester: React.FC = () => {
   const [showRequestHeaders, setShowRequestHeaders] = useState(false);
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState<ApiResponse | null>(null);
+  const installCommand = 'npm i nex4dev';
 
   const handleMethodChange = (newMethod: HttpMethod) => {
     setMethod(newMethod);
@@ -93,12 +94,33 @@ const ApiTester: React.FC = () => {
     }
   };
 
+  const copyInstallCommand = () => {
+    navigator.clipboard.writeText(installCommand);
+  };
+
   return (
     <div className="bg-[#1E293B] border border-[#334155] rounded-lg p-6">
       <h2 className="text-2xl font-semibold mb-4">API Route Tester</h2>
       <p className="text-gray-300 mb-6">
         Test API routes with different HTTP methods and view the responses in real-time.
       </p>
+
+      <div className="mb-8">
+        <h3 className="text-lg font-medium mb-3">Install npm modules</h3>
+        <div className="bg-[#0B1120] border border-[#334155] rounded-md px-3 py-3 flex items-center justify-between">
+          <span className="text-gray-300 font-mono text-sm">$ {installCommand}</span>
+          <button
+            onClick={copyInstallCommand}
+            className="text-gray-400 hover:text-white"
+            title="Copy install command"
+          >
+            <Copy size={14} />
+          </button>
+        </div>
+        <p className="text-gray-300 mt-3 text-sm">
+          Install our npm module directly into your compiler/terminal to get started quickly.
+        </p>
+      </div>
 
       {/* Request Builder */}
       <div className="mb-6">

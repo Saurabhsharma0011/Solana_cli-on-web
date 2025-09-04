@@ -226,7 +226,7 @@ const Terminal = () => {
             )}
           </div>
         );
-      } catch (error) {
+      } catch (_error) {
         // Clear loading state
         setIsLoading(false);
         
@@ -535,7 +535,7 @@ const Terminal = () => {
               </div>
             </div>
           );
-        } catch (error) {
+        } catch (_error) {
           // Clear loading state
           setIsLoading(false);
           
@@ -650,7 +650,7 @@ const Terminal = () => {
             </div>
           </div>
         );
-      } catch (error) {
+      } catch (_error) {
         // Clear loading state
         setIsLoading(false);
         
@@ -1152,7 +1152,7 @@ const Terminal = () => {
             {activeOrders.map((order, index) => {
               const token = terminalState.tokens.find(t => t.mint === order.tokenMint);
               return (
-                <div key={index} className="border border-gray-700 rounded p-2 bg-[#1E293B]">
+                <div key={index} className="border border-[#2FFFD1] rounded p-2 bg-[#071118]">
                   <div>Order ID: <span className="text-yellow-300">{order.id}</span></div>
                   <div className="grid grid-cols-2 gap-2">
                     <div>Seller: <span className="text-gray-300 truncate">{order.seller}</span></div>
@@ -1984,9 +1984,9 @@ const Terminal = () => {
 
   return (
     <div className="h-full flex flex-col">
-      <div className="bg-[#0F172A] border border-[#1E293B] rounded-lg overflow-hidden flex flex-col h-full">
+      <div className="bg-[#0B1120] border border-[#2FFFD1] rounded-lg overflow-hidden flex flex-col h-full">
         {/* Terminal Header */}
-        <div className="bg-[#1E293B] px-4 py-2 flex justify-between items-center border-b border-[#334155]">
+        <div className="bg-[#071118] px-4 py-2 flex justify-between items-center border-b border-[#2FFFD1]">
           <div className="flex items-center space-x-2">
             <TerminalIcon size={16} className="text-purple-400" />
             <span className="font-medium text-sm">Nex4 Terminal</span>
@@ -2015,7 +2015,7 @@ const Terminal = () => {
                     },
                   ]);
                 }}
-                className="bg-[#0F172A] text-gray-300 text-xs rounded px-2 py-1 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                className="bg-[#0B1120] text-gray-300 text-xs rounded px-2 py-1 border border-[#2FFFD1] focus:outline-none focus:ring-1 focus:ring-[#2FFFD1]"
               >
                 <option value="mainnet-beta">mainnet</option>
                 <option value="devnet">devnet</option>
@@ -2045,7 +2045,7 @@ const Terminal = () => {
         {/* Terminal Output */}
         <div 
           ref={terminalRef}
-          className="flex-grow bg-[#0F172A] p-4 overflow-y-auto font-mono text-sm"
+          className="flex-grow bg-[#0B1120] p-4 overflow-y-auto font-mono text-sm"
           onClick={focusInput}
         >
           {commandHistory.map((entry, index) => (

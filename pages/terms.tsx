@@ -1,0 +1,165 @@
+import React, { useState, useEffect } from 'react';
+import Head from "next/head";
+import Link from "next/link";
+import Footer from "../components/layout/Footer";
+import { Terminal, Activity, FileText, Bot, Github, Twitter, Menu, X } from 'lucide-react';
+import WalletSelector from '../components/ui/WalletSelector';
+
+const TermsOfService = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <Head>
+        <title>Terms of Service | NEX4</title>
+        <meta name="description" content="Terms of Service for NEX4 platform" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/IMG_8326.PNG" />
+      </Head>
+
+      {/* Navigation */}
+      <nav
+        className={`relative w-full z-[70] transition-all duration-300 ${
+          scrolled ? "bg-background/95 backdrop-blur-sm border-b border-border" : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-[90%] xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo with link to homepage */}
+            <Link href="/" className="flex items-center space-x-4">
+              <div className="w-14 h-14 rounded-full overflow-hidden">
+                <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
+              </div>
+              <span className="text-xl font-bold text-primary">NEX4DEV</span>
+            </Link>
+
+            {/* Navigation Links */}
+            <div className="hidden md:flex items-center space-x-8">
+              <Link
+                href="/terminal"
+                className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors relative group"
+              >
+                <Terminal className="w-4 h-4" />
+                <span>Terminal</span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link
+                href="/tracker"
+                className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors relative group"
+              >
+                <Activity className="w-4 h-4" />
+                <span>Tracker</span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <a
+                href="#documentation"
+                className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors relative group"
+              >
+                <FileText className="w-4 h-4" />
+                <span>Documentation</span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <a
+                href="/#bot"
+                className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors relative group"
+              >
+                <Bot className="w-4 h-4" />
+                <span>NEX4 BOT</span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </div>
+
+            {/* Connect Wallet Button */}
+            <div className="hidden md:flex items-center space-x-4">
+              <WalletSelector />
+              <Github className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+              <Twitter className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+            </div>
+            
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <button onClick={toggleMenu} className="text-foreground">
+                {isOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden bg-background/95 backdrop-blur-sm pt-4 pb-6 px-6 absolute top-16 left-0 right-0 border-b border-border z-50">
+            <div className="flex flex-col space-y-4">
+              <Link href="/terminal" className="flex items-center space-x-2 hover:text-primary transition-colors py-2">
+                <Terminal size={18} />
+                <span>Terminal</span>
+              </Link>
+              <Link href="/tracker" className="flex items-center space-x-2 hover:text-primary transition-colors py-2">
+                <Activity size={18} />
+                <span>Tracker</span>
+              </Link>
+              <a href="#documentation" className="flex items-center space-x-2 hover:text-primary transition-colors py-2">
+                <FileText size={18} />
+                <span>Documentation</span>
+              </a>
+              <a href="/#bot" className="flex items-center space-x-2 hover:text-primary transition-colors py-2">
+                <Bot size={18} />
+                <span>NEX4 BOT</span>
+              </a>
+              
+              <div className="mt-2">
+                <WalletSelector />
+              </div>
+              
+              <div className="pt-2 flex items-center space-x-4 border-t border-border">
+                <Github className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+                <Twitter className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+              </div>
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* Main Content */}
+      <div className="flex-grow">
+        <div className="max-w-4xl mx-auto px-4 py-12">
+          <h1 className="text-3xl font-bold mb-8 text-foreground">Terms of Service</h1>
+          
+          <p className="text-muted-foreground mb-6">
+            For our complete Terms and Conditions, please visit our 
+            <Link href="/privacy" className="text-[#2FFFD1] hover:underline ml-1">
+              Terms and Conditions page
+            </Link>.
+          </p>
+
+          <p className="text-muted-foreground mb-6">
+            By using NEX4's platform and services, you agree to abide by all terms and conditions outlined in our full Terms and Conditions document.
+          </p>
+
+          <div className="mt-12 pt-8 border-t border-[#1E293B]">
+            <p className="text-sm text-muted-foreground">Last updated: September 3, 2025</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <Footer />
+    </div>
+  );
+};
+
+export default TermsOfService;
