@@ -73,31 +73,31 @@ export default function NEX4DEVLanding() {
           scrolled ? "bg-background/95 backdrop-blur-sm border-b border-border" : "bg-transparent"
         }`}
       >
-        <div className="max-w-[90%] xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+        <div className="max-w-[95%] sm:max-w-[90%] xl:max-w-[1400px] mx-auto px-2 sm:px-4 lg:px-8">
+          <div className="flex items-center justify-between h-14 sm:h-16">
             {/* Logo with link to homepage */}
-            <Link href="/" className="flex items-center space-x-4">
-              <div className="w-14 h-14 rounded-full overflow-hidden">
+            <Link href="/" className="flex items-center space-x-2 sm:space-x-4">
+              <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full overflow-hidden">
                 <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="text-xl font-bold text-primary">NEX4DEV</span>
+              <span className="text-lg sm:text-xl font-bold text-primary">NEX4DEV</span>
             </Link>
 
             {/* Navigation Links */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
               <Link
                 href="/terminal"
-                className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors relative group"
+                className="flex items-center space-x-1 xl:space-x-2 text-foreground hover:text-primary transition-colors relative group text-sm xl:text-base"
               >
-                <Terminal className="w-4 h-4" />
+                <Terminal className="w-3 h-3 xl:w-4 xl:h-4" />
                 <span>Terminal</span>
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 href="/tracker"
-                className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors relative group"
+                className="flex items-center space-x-1 xl:space-x-2 text-foreground hover:text-primary transition-colors relative group text-sm xl:text-base"
               >
-                <Activity className="w-4 h-4" />
+                <Activity className="w-3 h-3 xl:w-4 xl:h-4" />
                 <span>Tracker</span>
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </Link>
@@ -105,37 +105,40 @@ export default function NEX4DEVLanding() {
                 href="https://docs.nex4.dev/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors relative group"
+                className="flex items-center space-x-1 xl:space-x-2 text-foreground hover:text-primary transition-colors relative group text-sm xl:text-base"
               >
-                <FileText className="w-4 h-4" />
+                <FileText className="w-3 h-3 xl:w-4 xl:h-4" />
                 <span>Docs</span>
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
               <a
                 href="/#bot"
-                className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors relative group"
+                className="flex items-center space-x-1 xl:space-x-2 text-foreground hover:text-primary transition-colors relative group text-sm xl:text-base"
               >
-                <Bot className="w-4 h-4" />
+                <Bot className="w-3 h-3 xl:w-4 xl:h-4" />
                 <span>NEX4 BOT</span>
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             </div>
 
             {/* Connect Wallet Button */}
-            <div className="hidden md:flex items-center space-x-4">
-              <a href="https://t.me/NEX4dev" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[#2e7d32] transition-colors text-sm font-medium">
-                Telegram
+            <div className="hidden lg:flex items-center space-x-2 xl:space-x-3">
+              <a href="https://t.me/NEX4dev" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-1 xl:space-x-2 px-3 xl:px-4 py-1.5 xl:py-2 bg-gradient-to-r from-[#2e7d32]/10 to-[#00dc82]/10 hover:from-[#2e7d32]/20 hover:to-[#00dc82]/20 border border-white/30 hover:border-white/50 rounded-lg text-[#2e7d32] hover:text-[#00dc82] transition-all duration-300 text-xs xl:text-sm font-medium group">
+                <div className="w-3 h-3 xl:w-4 xl:h-4 flex items-center justify-center">
+                  <img src="/telegram.png" alt="Telegram" className="w-full h-full object-contain brightness-0 invert transition-all duration-300" />
+                </div>
+                <span>Telegram</span>
               </a>
-              <a href="https://x.com/nex4dev" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium">
-                Twitter
+              <a href="https://x.com/nex4dev" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-1 xl:space-x-2 px-3 xl:px-4 py-1.5 xl:py-2 bg-gradient-to-r from-primary/10 to-primary/5 hover:from-primary/20 hover:to-primary/10 border border-white/30 hover:border-white/50 rounded-lg text-primary hover:text-primary/80 transition-all duration-300 text-xs xl:text-sm font-medium group">
+                <Twitter className="w-3 h-3 xl:w-4 xl:h-4 group-hover:scale-110 transition-transform duration-300" />
+                <span>Twitter</span>
               </a>
-              <WalletSelector />
             </div>
             
             {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button onClick={toggleMenu} className="text-white">
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
+            <div className="lg:hidden">
+              <button onClick={toggleMenu} className="text-white p-1">
+                {isOpen ? <X size={20} /> : <Menu size={20} />}
               </button>
             </div>
           </div>
@@ -143,35 +146,35 @@ export default function NEX4DEVLanding() {
         
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden bg-[#0B1120] pt-4 pb-6 px-6 absolute top-16 left-0 right-0 border-b border-border z-50">
-            <div className="flex flex-col space-y-4">
-              <Link href="/terminal" className="flex items-center space-x-2 hover:text-primary transition-colors py-2">
-                <Terminal size={18} />
+          <div className="lg:hidden bg-[#0B1120] pt-3 pb-4 px-4 sm:px-6 absolute top-14 sm:top-16 left-0 right-0 border-b border-border z-50">
+            <div className="flex flex-col space-y-3">
+              <Link href="/terminal" className="flex items-center space-x-2 hover:text-primary transition-colors py-2 text-sm">
+                <Terminal size={16} />
                 <span>Terminal</span>
               </Link>
-              <Link href="/tracker" className="flex items-center space-x-2 hover:text-primary transition-colors py-2">
-                <Activity size={18} />
+              <Link href="/tracker" className="flex items-center space-x-2 hover:text-primary transition-colors py-2 text-sm">
+                <Activity size={16} />
                 <span>Tracker</span>
               </Link>
-              <a href="https://docs.nex4.dev/" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 hover:text-primary transition-colors py-2">
-                <FileText size={18} />
+              <a href="https://docs.nex4.dev/" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 hover:text-primary transition-colors py-2 text-sm">
+                <FileText size={16} />
                 <span>Docs</span>
               </a>
-              <a href="/#bot" className="flex items-center space-x-2 hover:text-primary transition-colors py-2">
-                <Bot size={18} />
+              <a href="/#bot" className="flex items-center space-x-2 hover:text-primary transition-colors py-2 text-sm">
+                <Bot size={16} />
                 <span>NEX4 BOT</span>
               </a>
               
-              <div className="mt-2">
-                <WalletSelector />
-              </div>
-              
-              <div className="pt-2 flex items-center space-x-4 border-t border-border">
-                <a href="https://t.me/NEX4dev" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[#2e7d32] transition-colors text-sm font-medium">
-                  Telegram
+              <div className="pt-2 flex flex-col space-y-2 border-t border-border">
+                <a href="https://t.me/NEX4dev" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-[#2e7d32]/10 to-[#00dc82]/10 hover:from-[#2e7d32]/20 hover:to-[#00dc82]/20 border border-white/30 hover:border-white/50 rounded-lg text-[#2e7d32] hover:text-[#00dc82] transition-all duration-300 text-sm font-medium group">
+                  <div className="w-4 h-4 flex items-center justify-center">
+                    <img src="/telegram.png" alt="Telegram" className="w-full h-full object-contain brightness-0 invert transition-all duration-300" />
+                  </div>
+                  <span>Telegram</span>
                 </a>
-                <a href="https://x.com/nex4dev" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium">
-                  Twitter
+                <a href="https://x.com/nex4dev" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-primary/10 to-primary/5 hover:from-primary/20 hover:to-primary/10 border border-white/30 hover:border-white/50 rounded-lg text-primary hover:text-primary/80 transition-all duration-300 text-sm font-medium group">
+                  <Twitter className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
+                  <span>Twitter</span>
                 </a>
               </div>
             </div>
@@ -180,7 +183,7 @@ export default function NEX4DEVLanding() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden w-full">
+      <section className="pt-16 sm:pt-20 lg:pt-24 pb-20 sm:pb-24 lg:pb-28 px-3 sm:px-4 lg:px-8 relative overflow-hidden w-full">
         {/* Premium floating particles */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 left-10 w-2 h-2 bg-primary/60 rounded-full animate-floating-particles"></div>
@@ -206,30 +209,32 @@ export default function NEX4DEVLanding() {
           ></div>
         </div>
 
-        <div className="max-w-[90%] xl:max-w-[1400px] mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-[95%] sm:max-w-[90%] xl:max-w-[1400px] mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
             {/* Left side - Content */}
-            <div className="animate-fade-in-up">
-              <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 animate-premium-breathing">
+            <div className="animate-fade-in-up text-center lg:text-left">
+              <Badge className="mb-4 sm:mb-6 bg-primary/10 text-primary border-primary/20 animate-premium-breathing">
                 NEX4DEV v1.0 is out <ChevronRight className="w-3 h-3 ml-1" />
               </Badge>
 
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
                 <span className="text-primary">The</span> <span className="text-white">Web4</span> Studio{" "}
                 <span className="text-primary">for</span> <span className="text-primary">Solana</span>{" "}
                 <span className="text-primary">Developers</span>
               </h1>
 
-              <p className="text-xl text-muted-foreground mb-8 text-pretty leading-relaxed max-w-xl">
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 text-pretty leading-relaxed max-w-xl mx-auto lg:mx-0">
                 NEX4 brings raw real-time Solana data, a browser-based CLI, and developer-ready tools — all in one
                 seamless Web4 platform
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button size="lg" className="animate-premium-breathing">
-                  Get Started
-                </Button>
-                <div className="relative flex items-center justify-between rounded-md px-3 py-2 ml-2 shadow-sm shadow-[#2e7d32]/20 w-[180px] sm:w-[220px] md:w-[250px] bg-[#2e7d32]/20 border border-[#2e7d32]/60">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 items-center lg:items-start">
+                <Link href="/terminal">
+                  <Button size="lg" className="animate-premium-breathing w-full sm:w-auto">
+                    Get Started
+                  </Button>
+                </Link>
+                <div className="relative flex items-center justify-between rounded-md px-3 py-2 ml-0 sm:ml-2 shadow-sm shadow-[#2e7d32]/20 w-full sm:w-[180px] md:w-[220px] lg:w-[250px] bg-[#2e7d32]/20 border border-[#2e7d32]/60">
                   <span className="flex-1 z-10 font-mono text-sm relative min-w-[140px] md:min-w-[180px]">
                     {fullText}
                   </span>
@@ -239,7 +244,7 @@ export default function NEX4DEVLanding() {
                 </div>
               </div>
               {/* Terminal Command */}
-              <div className="code-highlight rounded-lg p-4 font-mono text-sm max-w-md">
+              <div className="code-highlight rounded-lg p-4 font-mono text-sm max-w-md mx-auto lg:mx-0">
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">$</span>
                   <span className="flex-1 ml-2">npm i nex4dev</span>
@@ -248,27 +253,27 @@ export default function NEX4DEVLanding() {
                   </Button>
                 </div>
               </div>
-              <p className="text-sm text-muted-foreground mt-2 ml-4">
+              <p className="text-sm text-muted-foreground mt-2 ml-4 text-center lg:text-left">
                 install advance solana modules next into you complier
               </p>
             </div>
             
             {/* Right side - Code example */}
-            <div className="relative mt-10 lg:mt-0 group/code h-full">
+            <div className="relative mt-8 lg:mt-0 group/code h-full">
               <div className="absolute inset-0 bg-gradient-to-r from-[#2e7d32]/30 to-[#00dc82]/20 opacity-50 rounded-lg blur-xl group-hover/code:opacity-70 transition-opacity animate-pulse"></div>
               <div className="absolute inset-0 bg-[#2e7d32]/5 rounded-lg"></div>
-              <div className="relative bg-[#1a1a1a]/90 border border-[#2e7d32]/40 group-hover/code:border-[#2e7d32]/60 rounded-lg overflow-hidden shadow-xl transition-colors h-[500px] flex flex-col">
+              <div className="relative bg-[#1a1a1a]/90 border border-[#2e7d32]/40 group-hover/code:border-[#2e7d32]/60 rounded-lg overflow-hidden shadow-xl transition-colors h-[400px] sm:h-[450px] lg:h-[500px] flex flex-col">
                 {/* Tab header */}
-                <div className="flex items-center justify-between px-4 py-2 border-b border-[#2e7d32]/30 bg-[#1a1a1a]/80 backdrop-blur-sm shrink-0">
+                <div className="flex items-center justify-between px-3 sm:px-4 py-2 border-b border-[#2e7d32]/30 bg-[#1a1a1a]/80 backdrop-blur-sm shrink-0">
                   <div className="flex items-center space-x-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></div>
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></div>
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500/80"></div>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-1 sm:space-x-2 overflow-x-auto">
                       <div 
                         onClick={() => setActiveTab("quickstart")}
-                        className={`px-3 py-1 rounded text-xs font-mono cursor-pointer transition-colors ${
+                        className={`px-2 sm:px-3 py-1 rounded text-xs font-mono cursor-pointer transition-colors whitespace-nowrap ${
                           activeTab === "quickstart" 
                             ? "bg-[#2e7d32]/20 text-[#2e7d32] border-b-2 border-[#2e7d32]" 
                             : "text-muted-foreground hover:text-[#2e7d32] hover:bg-[#2e7d32]/10"
@@ -278,7 +283,7 @@ export default function NEX4DEVLanding() {
                       </div>
                       <div 
                         onClick={() => setActiveTab("config")}
-                        className={`px-3 py-1 rounded text-xs font-mono cursor-pointer transition-colors ${
+                        className={`px-2 sm:px-3 py-1 rounded text-xs font-mono cursor-pointer transition-colors whitespace-nowrap ${
                           activeTab === "config" 
                             ? "bg-[#2e7d32]/20 text-[#2e7d32] border-b-2 border-[#2e7d32]" 
                             : "text-muted-foreground hover:text-[#2e7d32] hover:bg-[#2e7d32]/10"
@@ -288,7 +293,7 @@ export default function NEX4DEVLanding() {
                       </div>
                       <div 
                         onClick={() => setActiveTab("terminal")}
-                        className={`px-3 py-1 rounded text-xs font-mono cursor-pointer transition-colors ${
+                        className={`px-2 sm:px-3 py-1 rounded text-xs font-mono cursor-pointer transition-colors whitespace-nowrap ${
                           activeTab === "terminal" 
                             ? "bg-[#2e7d32]/20 text-[#2e7d32] border-b-2 border-[#2e7d32]" 
                             : "text-muted-foreground hover:text-[#2e7d32] hover:bg-[#2e7d32]/10"
@@ -298,7 +303,7 @@ export default function NEX4DEVLanding() {
                       </div>
                       <div 
                         onClick={() => setActiveTab("network")}
-                        className={`px-3 py-1 rounded text-xs font-mono cursor-pointer transition-colors ${
+                        className={`hidden sm:block px-2 sm:px-3 py-1 rounded text-xs font-mono cursor-pointer transition-colors whitespace-nowrap ${
                           activeTab === "network" 
                             ? "bg-[#2e7d32]/20 text-[#2e7d32] border-b-2 border-[#2e7d32]" 
                             : "text-muted-foreground hover:text-[#2e7d32] hover:bg-[#2e7d32]/10"
@@ -308,7 +313,7 @@ export default function NEX4DEVLanding() {
                       </div>
                       <div 
                         onClick={() => setActiveTab("data")}
-                        className={`px-3 py-1 rounded text-xs font-mono cursor-pointer transition-colors ${
+                        className={`hidden md:block px-2 sm:px-3 py-1 rounded text-xs font-mono cursor-pointer transition-colors whitespace-nowrap ${
                           activeTab === "data" 
                             ? "bg-[#2e7d32]/20 text-[#2e7d32] border-b-2 border-[#2e7d32]" 
                             : "text-muted-foreground hover:text-[#2e7d32] hover:bg-[#2e7d32]/10"
@@ -321,7 +326,7 @@ export default function NEX4DEVLanding() {
                 </div>
                 
                 {/* Code content - Vertical Style */}
-                <div className="p-4 font-mono text-sm text-white overflow-hidden h-full flex-1 bg-[#1a1a1a]/80 backdrop-blur-sm">
+                <div className="p-3 sm:p-4 font-mono text-xs sm:text-sm text-white overflow-auto h-full flex-1 bg-[#1a1a1a]/80 backdrop-blur-sm">
                   {activeTab === "quickstart" && (
                     <div>
                       <div className="flex">
@@ -756,18 +761,18 @@ export default function NEX4DEVLanding() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-[90%] xl:max-w-[1400px] mx-auto">
-          <div className="mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-balance">Enable features as you grow</h2>
-            <p className="text-lg text-muted-foreground max-w-4xl leading-relaxed">
+      <section className="py-16 sm:py-20 px-3 sm:px-4 lg:px-8 bg-muted/30">
+        <div className="max-w-[95%] sm:max-w-[90%] xl:max-w-[1400px] mx-auto">
+          <div className="mb-12 sm:mb-16 text-center lg:text-left">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-balance">Enable features as you grow</h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-4xl leading-relaxed mx-auto lg:mx-0">
               NEX4DEV provides a comprehensive suite of tools for Solana developers and researchers. Our platform
               offers powerful features for blockchain interaction, network monitoring, and AI-assisted development
               that scale with your project's needs. We've designed NEX4DEV to be accessible for developers of all skill levels.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
             {/* Row 1 - 4 cards */}
             {[
               {
@@ -796,17 +801,17 @@ export default function NEX4DEVLanding() {
             ].map((feature, index) => (
               <Card
                 key={index}
-                className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card border-border group"
+                className="p-4 sm:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card border-border group"
               >
-                <feature.icon className="w-8 h-8 text-primary mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-lg font-semibold mb-3 text-foreground">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
+                <feature.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary mb-3 sm:mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-foreground">{feature.title}</h3>
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{feature.description}</p>
               </Card>
             ))}
           </div>
 
           {/* Row 2 - 4 cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
             {[
               {
                 icon: Shield,
@@ -831,17 +836,17 @@ export default function NEX4DEVLanding() {
             ].map((feature, index) => (
               <Card
                 key={index}
-                className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card border-border group"
+                className="p-4 sm:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card border-border group"
               >
-                <feature.icon className="w-8 h-8 text-primary mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-lg font-semibold mb-3 text-foreground">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
+                <feature.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary mb-3 sm:mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-foreground">{feature.title}</h3>
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{feature.description}</p>
               </Card>
             ))}
           </div>
 
           {/* Row 3 - 3 cards + CTA */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               {
                 icon: RefreshCw,
@@ -861,18 +866,18 @@ export default function NEX4DEVLanding() {
             ].map((feature, index) => (
               <Card
                 key={index}
-                className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card border-border group"
+                className="p-4 sm:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card border-border group"
               >
-                <feature.icon className="w-8 h-8 text-primary mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-lg font-semibold mb-3 text-foreground">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
+                <feature.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary mb-3 sm:mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-foreground">{feature.title}</h3>
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{feature.description}</p>
               </Card>
             ))}
 
-            <Card className="p-6 bg-primary/5 border-primary/20 flex flex-col justify-center items-start">
-              <h3 className="text-lg font-semibold mb-3 text-foreground">Deep dive into NEX4DEV now</h3>
+            <Card className="p-4 sm:p-6 bg-primary/5 border-primary/20 flex flex-col justify-center items-start">
+              <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-foreground">Deep dive into NEX4DEV now</h3>
               <a href="https://docs.nex4.dev/" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm">
                   Start reading docs
                   <ChevronRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -883,57 +888,57 @@ export default function NEX4DEVLanding() {
       </section>
 
       {/* NEX4BOT Section */}
-      <section id="bot" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-muted/30">
-        <div className="max-w-[90%] xl:max-w-[1400px] mx-auto">
-          <div className="text-center mb-16">
+      <section id="bot" className="py-16 sm:py-20 px-3 sm:px-4 lg:px-8 bg-gradient-to-b from-background to-muted/30">
+        <div className="max-w-[95%] sm:max-w-[90%] xl:max-w-[1400px] mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
             <div className="inline-flex items-center justify-center mb-4">
-              <Bot className="w-6 h-6 text-primary mr-2" />
+              <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-primary mr-2" />
               <Badge className="bg-primary/10 text-primary border-primary/20">
                 AI-Powered Assistant
               </Badge>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-[#2e7d32] via-[#00dc82] to-[#2e7d32] text-transparent bg-clip-text animate-gradient-x">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#2e7d32] via-[#00dc82] to-[#2e7d32] text-transparent bg-clip-text animate-gradient-x">
               Meet NEX4BOT - Your Solana AI Assistant
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Supercharge your Solana development with our intelligent AI assistant. Choose the tier that fits your needs.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 auto-rows-fr">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 auto-rows-fr">
             {/* Free Tier */}
             <div className="relative group">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-background via-[#2e7d32]/30 to-background rounded-xl blur opacity-30 group-hover:opacity-70 transition duration-1000 group-hover:duration-300"></div>
               <div className="relative bg-card border border-border rounded-lg overflow-hidden h-full">
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-6">
+                <div className="p-6 sm:p-8">
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
                     <div className="flex items-center">
-                      <Bot className="w-8 h-8 text-primary mr-3" />
-                      <h3 className="text-2xl font-bold">Free Tier</h3>
+                      <Bot className="w-6 h-6 sm:w-8 sm:h-8 text-primary mr-2 sm:mr-3" />
+                      <h3 className="text-xl sm:text-2xl font-bold">Free Tier</h3>
                     </div>
-                    <Badge className="bg-muted text-muted-foreground">Community</Badge>
+                    <Badge className="bg-muted text-muted-foreground text-xs sm:text-sm">Community</Badge>
                   </div>
                   
-                  <div className="mb-6">
-                    <div className="text-3xl font-bold mb-1">$0<span className="text-lg font-normal text-muted-foreground">/month</span></div>
-                    <p className="text-muted-foreground">Perfect for getting started</p>
-                    <p className="text-muted-foreground opacity-0">Hidden spacer line</p>
+                  <div className="mb-4 sm:mb-6">
+                    <div className="text-2xl sm:text-3xl font-bold mb-1">$0<span className="text-base sm:text-lg font-normal text-muted-foreground">/month</span></div>
+                    <p className="text-muted-foreground text-sm sm:text-base">Perfect for getting started</p>
+                    <p className="text-muted-foreground opacity-0 text-sm sm:text-base">Hidden spacer line</p>
                   </div>
                   
                   <a href="https://t.me/nex4studiobot" target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full mb-8 bg-muted hover:bg-muted/80 text-foreground border border-border">
+                    <Button className="w-full mb-6 sm:mb-8 bg-muted hover:bg-muted/80 text-foreground border border-border text-sm sm:text-base">
                       Get Started <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </a>
                   
-                  <div className="space-y-4">
-                    <div className="font-medium mb-2">Free Tier Commands:</div>
+                  <div className="space-y-3 sm:space-y-4">
+                    <div className="font-medium mb-2 text-sm sm:text-base">Free Tier Commands:</div>
                     
                     <div className="flex items-start">
-                      <Code className="w-5 h-5 text-primary mr-3 mt-0.5 shrink-0" />
+                      <Code className="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-2 sm:mr-3 mt-0.5 shrink-0" />
                       <div>
-                        <p className="font-medium">/web4</p>
-                        <p className="text-sm text-muted-foreground">Intelligence Pulse Dispatcher (IPD)</p>
+                        <p className="font-medium text-sm sm:text-base">/web4</p>
+                        <p className="text-xs sm:text-sm text-muted-foreground">Intelligence Pulse Dispatcher (IPD)</p>
                       </div>
                     </div>
                     
@@ -1018,40 +1023,40 @@ export default function NEX4DEVLanding() {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-[#2e7d32] to-[#00dc82] rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-300 animate-pulse-subtle"></div>
               <div className="relative bg-card border border-[#2e7d32]/30 rounded-lg overflow-hidden h-full">
                 <div className="absolute top-0 right-0">
-                  <div className="bg-[#2e7d32] text-white px-8 py-1 rotate-45 translate-x-2 translate-y-3 font-medium text-xs">
+                  <div className="bg-[#2e7d32] text-white px-6 sm:px-8 py-1 rotate-45 translate-x-2 translate-y-3 font-medium text-xs">
                     POPULAR
                   </div>
                 </div>
                 
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-6">
+                <div className="p-6 sm:p-8">
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
                     <div className="flex items-center">
-                      <Gem className="w-8 h-8 text-[#00dc82] mr-3" />
-                      <h3 className="text-2xl font-bold">Premium Tier</h3>
+                      <Gem className="w-6 h-6 sm:w-8 sm:h-8 text-[#00dc82] mr-2 sm:mr-3" />
+                      <h3 className="text-xl sm:text-2xl font-bold">Premium Tier</h3>
                     </div>
-                    <Badge className="bg-[#2e7d32]/20 text-[#00dc82] border-[#2e7d32]/30">
+                    <Badge className="bg-[#2e7d32]/20 text-[#00dc82] border-[#2e7d32]/30 text-xs sm:text-sm">
                       <Sparkles className="w-3 h-3 mr-1" /> Pro
                     </Badge>
                   </div>
                   
-                  <div className="mb-6">
-                    <div className="text-3xl font-bold mb-1">Premium<span className="text-lg font-normal text-muted-foreground ml-2">Access</span></div>
-                    <p className="text-muted-foreground">Pre registration open, will end on Sept 21st</p>
-                    <p className="text-muted-foreground">Premium bot will launch in early October</p>
+                  <div className="mb-4 sm:mb-6">
+                    <div className="text-2xl sm:text-3xl font-bold mb-1">Premium<span className="text-base sm:text-lg font-normal text-muted-foreground ml-2">Access</span></div>
+                    <p className="text-muted-foreground text-sm sm:text-base">Pre registration open, will end on Sept 21st</p>
+                    <p className="text-muted-foreground text-sm sm:text-base">Premium bot will launch in early October</p>
                   </div>
                   <a href="https://t.me/NEX4PremiumBot" target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full mb-8 bg-gradient-to-r from-[#2e7d32] to-[#00dc82] hover:opacity-90 text-white border-none animate-premium-breathing">
+                    <Button className="w-full mb-6 sm:mb-8 bg-gradient-to-r from-[#2e7d32] to-[#00dc82] hover:opacity-90 text-white border-none animate-premium-breathing text-sm sm:text-base">
                       Register Now
                     </Button>
                   </a>
-                  <div className="space-y-4">
-                    <div className="font-medium mb-2">Premium Tier Modules:</div>
+                  <div className="space-y-3 sm:space-y-4">
+                    <div className="font-medium mb-2 text-sm sm:text-base">Premium Tier Modules:</div>
                     
                     <div className="flex items-start">
-                      <Star className="w-5 h-5 text-[#00dc82] mr-3 mt-0.5 shrink-0" />
+                      <Star className="w-4 h-4 sm:w-5 sm:h-5 text-[#00dc82] mr-2 sm:mr-3 mt-0.5 shrink-0" />
                       <div>
-                        <p className="font-medium">AI Trade Copilot</p>
-                        <p className="text-sm text-muted-foreground">Autonomous Trade Strategy Synthesizer (ATSS)</p>
+                        <p className="font-medium text-sm sm:text-base">AI Trade Copilot</p>
+                        <p className="text-xs sm:text-sm text-muted-foreground">Autonomous Trade Strategy Synthesizer (ATSS)</p>
                       </div>
                     </div>
                     
@@ -1132,52 +1137,39 @@ export default function NEX4DEVLanding() {
             </div>
           </div>
           
-          <div className="mt-16 text-center">
-            <Badge className="bg-primary/10 text-primary border-primary/20 mb-4">
-              Enterprise Solutions
-            </Badge>
-            <h3 className="text-2xl font-bold mb-4">Need a custom solution?</h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              For teams requiring custom integrations, dedicated resources, or specialized features,
-              our enterprise plans offer tailored solutions to meet your specific needs.
-            </p>
-            <Button variant="outline" className="border-primary/20 text-primary hover:bg-primary/10">
-              Contact Sales <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
-          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#0B1120] text-white border-t border-[#2FFFD1] pt-10 pb-8">
-        <div className="max-w-[90%] xl:max-w-[1400px] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <footer className="bg-[#0B1120] text-white border-t border-[#2FFFD1] pt-8 sm:pt-10 pb-6 sm:pb-8">
+        <div className="max-w-[95%] sm:max-w-[90%] xl:max-w-[1400px] mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {/* Logo and description */}
-            <div className="col-span-1 md:col-span-1">
-              <Link href="/" className="flex items-center space-x-2 mb-4">
-                <div className="w-10 h-10 rounded-full overflow-hidden">
+            <div className="col-span-1 text-center sm:text-left">
+              <Link href="/" className="flex items-center justify-center sm:justify-start space-x-2 mb-4">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden">
                   <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
                 </div>
-                <span className="font-bold text-xl">NEX4DEV</span>
+                <span className="font-bold text-lg sm:text-xl">NEX4DEV</span>
               </Link>
-              <p className="text-gray-400 text-sm mb-4">
+              <p className="text-gray-400 text-xs sm:text-sm mb-4">
                 A professional browser-based platform for Solana developers and researchers.
               </p>
             </div>
 
             {/* Product Links */}
-            <div className="col-span-1">
-              <h3 className="text-sm font-semibold uppercase text-gray-400 mb-4">Product</h3>
-              <ul className="space-y-3">
+            <div className="col-span-1 text-center sm:text-left">
+              <h3 className="text-xs sm:text-sm font-semibold uppercase text-gray-400 mb-3 sm:mb-4">Product</h3>
+              <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <Link href="/terminal" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-sm flex items-center">
-                    <Terminal className="w-4 h-4 mr-2" />
+                  <Link href="/terminal" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-xs sm:text-sm flex items-center justify-center sm:justify-start">
+                    <Terminal className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                     Terminal
                   </Link>
                 </li>
                 <li>
-                  <Link href="/tracker" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-sm flex items-center">
-                    <Activity className="w-4 h-4 mr-2" />
+                  <Link href="/tracker" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-xs sm:text-sm flex items-center justify-center sm:justify-start">
+                    <Activity className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                     Network Tracker
                   </Link>
                 </li>
@@ -1186,9 +1178,9 @@ export default function NEX4DEVLanding() {
                     onClick={() => {
                       alert("This feature will be introduced in v2.0");
                     }} 
-                    className="text-gray-300 hover:text-[#2e7d32] transition-colors text-sm flex items-center cursor-pointer bg-transparent border-0 p-0"
+                    className="text-gray-300 hover:text-[#2e7d32] transition-colors text-xs sm:text-sm flex items-center justify-center sm:justify-start cursor-pointer bg-transparent border-0 p-0"
                   >
-                    <Search className="w-4 h-4 mr-2" />
+                    <Search className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                     Explorer
                   </button>
                 </li>
@@ -1196,53 +1188,59 @@ export default function NEX4DEVLanding() {
             </div>
 
             {/* Resources Links */}
-            <div className="col-span-1">
-              <h3 className="text-sm font-semibold uppercase text-gray-400 mb-4">Resources</h3>
-              <ul className="space-y-3">
+            <div className="col-span-1 text-center sm:text-left">
+              <h3 className="text-xs sm:text-sm font-semibold uppercase text-gray-400 mb-3 sm:mb-4">Resources</h3>
+              <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <a href="https://docs.nex4.dev/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-sm flex items-center">
-                    <FileText className="w-4 h-4 mr-2" />
+                  <a href="https://docs.nex4.dev/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-xs sm:text-sm flex items-center justify-center sm:justify-start">
+                    <FileText className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                     Docs
                   </a>
                 </li>
                 <li>
-                  <a href="#bot" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-sm flex items-center">
-                    <Bot className="w-4 h-4 mr-2" />
+                  <a href="#bot" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-xs sm:text-sm flex items-center justify-center sm:justify-start">
+                    <Bot className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                     NEX4 BOT
                   </a>
                 </li>
                 <li>
-                  <a href="https://docs.solana.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-sm flex items-center">
-                    <div className="w-4 h-4 mr-2 flex items-center justify-center">
+                  <a href="https://docs.solana.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-xs sm:text-sm flex items-center justify-center sm:justify-start">
+                    <div className="w-3 h-3 sm:w-4 sm:h-4 mr-2 flex items-center justify-center">
                       <img src="/solana-svgrepo-com.svg" alt="Solana" className="w-full h-full object-contain brightness-0 invert" />
                     </div>
                     Solana Docs
+                  </a>
+                </li>
+                <li>
+                  <a href="/NEX4.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-xs sm:text-sm flex items-center justify-center sm:justify-start">
+                    <FileText className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
+                    Whitepaper
                   </a>
                 </li>
               </ul>
             </div>
             
             {/* Social Links */}
-            <div className="col-span-1">
-              <h3 className="text-sm font-semibold uppercase text-gray-400 mb-4">Social</h3>
-              <ul className="space-y-3">
+            <div className="col-span-1 text-center sm:text-left">
+              <h3 className="text-xs sm:text-sm font-semibold uppercase text-gray-400 mb-3 sm:mb-4">Social</h3>
+              <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <a href="https://t.me/NEX4dev" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-sm flex items-center">
-                    <div className="w-5 h-5 mr-2 flex items-center justify-center">
+                  <a href="https://t.me/NEX4dev" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-xs sm:text-sm flex items-center justify-center sm:justify-start">
+                    <div className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex items-center justify-center">
                       <img src="/telegram.png" alt="Telegram" className="w-full h-full object-contain brightness-0 invert" />
                     </div>
                     Telegram
                   </a>
                 </li>
                 <li>
-                  <a href="https://x.com/nex4dev" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-sm flex items-center">
-                    <Twitter className="w-5 h-5 mr-2" />
+                  <a href="https://x.com/nex4dev" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-xs sm:text-sm flex items-center justify-center sm:justify-start">
+                    <Twitter className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                     Twitter
                   </a>
                 </li>
                 <li>
-                  <a href="https://dexscreener.com/solana/nex4" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-sm flex items-center">
-                    <div className="w-5 h-5 mr-2 flex items-center justify-center">
+                  <a href="https://dexscreener.com/solana/nex4" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-xs sm:text-sm flex items-center justify-center sm:justify-start">
+                    <div className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex items-center justify-center">
                       <img src="/dexsrenner.png" alt="Dexscreener" className="w-full h-full object-contain brightness-0 invert" />
                     </div>
                     Dexscreener
@@ -1253,12 +1251,12 @@ export default function NEX4DEVLanding() {
 
           </div>
 
-          <div className="border-t border-[#1E293B] mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 mb-4 md:mb-0">
-              <p className="text-gray-500 text-xs">
+          <div className="border-t border-[#1E293B] mt-6 sm:mt-8 pt-6 sm:pt-8 flex flex-col items-center space-y-4 sm:space-y-0 sm:flex-row sm:justify-between">
+            <div className="flex flex-col items-center space-y-2 sm:space-y-0 sm:flex-row sm:space-x-4">
+              <p className="text-gray-500 text-xs text-center">
                 © {new Date().getFullYear()} NEX4DEV. All rights reserved.
               </p>
-              <div className="flex space-x-4 text-xs">
+              <div className="flex space-x-3 sm:space-x-4 text-xs">
                 <Link href="/legal/terms" className="text-gray-500 hover:text-[#2e7d32] transition-colors">
                   Terms of Service
                 </Link>
@@ -1271,7 +1269,7 @@ export default function NEX4DEVLanding() {
               <span className="text-gray-500 text-xs">
                 Built for the Solana ecosystem
               </span>
-              <div className="w-6 h-6 rounded-full overflow-hidden">
+              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full overflow-hidden">
                 <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
               </div>
             </div>

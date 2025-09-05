@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Terminal as TerminalIcon, Copy, ChevronRight, RefreshCw } from 'lucide-react';
+import { Terminal as TerminalIcon, Copy, ChevronRight, RefreshCw, AlertTriangle } from 'lucide-react';
 import CommandWithCopy from '../ui/CommandWithCopy';
+import { useWallet } from '../../context/WalletContext';
 
 // Define the types for our command history
 interface CommandEntry {
@@ -50,7 +51,17 @@ interface TerminalState {
   }[];
 }
 
-const Terminal = () => {
+interface TerminalProps {
+  // We can keep this prop for backwards compatibility but we'll use the context internally
+  isWalletConnected?: boolean;
+}
+
+const Terminal: React.FC<TerminalProps> = ({ isWalletConnected: propIsWalletConnected }) => {
+  // Use the wallet context
+  const { isWalletConnected } = useWallet();
+  
+  // Use context value but allow prop to override for backwards compatibility
+  const walletConnected = propIsWalletConnected !== undefined ? propIsWalletConnected : isWalletConnected;
   const [inputValue, setInputValue] = useState('');
   const [commandHistory, setCommandHistory] = useState<CommandEntry[]>([
     {
@@ -58,9 +69,19 @@ const Terminal = () => {
       output: (
         <div className="text-green-400 mb-2">
           <div className="mb-1">Welcome to Nex4 Terminal - Solana CLI in your browser</div>
-          <div className="text-gray-400 text-sm">
+          <div className="text-gray-400 text-sm mb-2">
             Type <span className="text-yellow-300">help</span> to see available commands
           </div>
+          {!walletConnected && (
+            <div className="text-orange-400 text-sm flex items-start space-x-2">
+              <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" />
+              <div>
+                <div className="font-semibold">Wallet Connection Required</div>
+                <div>Connect your wallet to use full terminal functionality.</div>
+                <div>Only <span className="text-yellow-300">help</span> and <span className="text-yellow-300">clear</span> commands are available without wallet connection.</div>
+              </div>
+            </div>
+          )}
         </div>
       ),
     },
@@ -114,6 +135,24 @@ const Terminal = () => {
     help: () => (
       <div className="space-y-1">
         <div className="text-yellow-300 font-semibold">Available Commands:</div>
+        <div className="flex items-center">
+          <span className="text-purple-400 mr-2">help</span> - Show this help menu
+          {!isWalletConnected && <span className="text-green-400 text-xs ml-2">(Available without wallet)</span>}
+        </div>
+        <div className="flex items-center">
+          <span className="text-purple-400 mr-2">clear</span> - Clear terminal
+          {!isWalletConnected && <span className="text-green-400 text-xs ml-2">(Available without wallet)</span>}
+        </div>
+        
+        {!isWalletConnected && (
+          <div className="text-orange-400 text-sm mt-2 mb-2 flex items-start space-x-2">
+            <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" />
+            <div>
+              <div className="font-semibold">Note: The following commands require wallet connection</div>
+            </div>
+          </div>
+        )}
+        
         <div><span className="text-purple-400">solana balance</span> - Check SOL balance</div>
         <div><span className="text-purple-400">solana validators</span> - List active validators</div>
         <div><span className="text-purple-400">solana block-height</span> - Get current block height</div>
@@ -135,8 +174,6 @@ const Terminal = () => {
           <CommandWithCopy command='sh -c "curl -sSfL https://release.solana.com/stable/install | sh"' className="ml-2" />
         </div>
         <div><span className="text-purple-400">apt-get install solana-cli</span> - Install Solana CLI on Debian/Ubuntu</div>
-        <div><span className="text-purple-400">clear</span> - Clear terminal</div>
-        <div><span className="text-purple-400">help</span> - Show this help menu</div>
         
         <div className="text-yellow-300 font-semibold mt-4">Token Marketplace Commands:</div>
         <div><span className="text-purple-400">marketplace init --fee [percent]</span> - Initialize token marketplace</div>
@@ -1449,6 +1486,21 @@ const Terminal = () => {
       return '';
     }
     
+    // Allow only 'help' and 'clear' commands without wallet connection
+    if (!walletConnected && cmdLower !== 'help' && cmdLower !== 'clear') {
+      return (
+        <div className="text-orange-400 flex items-start space-x-2">
+          <AlertTriangle size={18} className="mt-1 flex-shrink-0" />
+          <div>
+            <div className="font-semibold mb-1">Wallet Connection Required</div>
+            <div className="text-sm">
+              Please connect your wallet to use this command. You can only use <span className="text-yellow-300">help</span> and <span className="text-yellow-300">clear</span> commands without connecting a wallet.
+            </div>
+          </div>
+        </div>
+      );
+    }
+    
     // Extract command and arguments
     const parts = normalizedCmd.split(' ');
     const args = parts.slice(1).join(' ');
@@ -1990,6 +2042,12 @@ const Terminal = () => {
           <div className="flex items-center space-x-2">
             <TerminalIcon size={16} className="text-purple-400" />
             <span className="font-medium text-sm">Nex4 Terminal</span>
+            {!walletConnected && (
+              <div className="ml-4 bg-orange-500/20 text-orange-400 text-xs px-2 py-0.5 rounded-full flex items-center">
+                <AlertTriangle size={12} className="mr-1" />
+                Limited Access Mode
+              </div>
+            )}
           </div>
           <div className="flex items-center space-x-4">
             {/* Network Selector */}

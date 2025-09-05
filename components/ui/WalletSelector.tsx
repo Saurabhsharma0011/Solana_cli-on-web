@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { useWallet } from '../../context/WalletContext';
 
 // Define types for wallet providers
 declare global {
@@ -8,7 +9,7 @@ declare global {
       solana?: {
         connect: () => Promise<{ publicKey: { toString: () => string } }>;
         disconnect: () => Promise<void>;
-        signMessage: (message: Uint8Array, encoding?: string) => Promise<{ signature: Uint8Array }>;
+        signMessage: (message: Uint8Array) => Promise<{ signature: Uint8Array }>;
         isConnected: boolean;
         publicKey?: { toString: () => string };
       };
@@ -16,14 +17,14 @@ declare global {
     solflare?: {
       connect: () => Promise<{ publicKey: { toString: () => string } }>;
       disconnect: () => Promise<void>;
-      signMessage: (message: Uint8Array, encoding?: string) => Promise<{ signature: Uint8Array }>;
+      signMessage: (message: Uint8Array) => Promise<{ signature: Uint8Array }>;
       isConnected: boolean;
       publicKey?: { toString: () => string };
     };
     magicEden?: {
       connect: () => Promise<{ publicKey: { toString: () => string } }>;
       disconnect: () => Promise<void>;
-      signMessage: (message: Uint8Array, encoding?: string) => Promise<{ signature: Uint8Array }>;
+      signMessage: (message: Uint8Array) => Promise<{ signature: Uint8Array }>;
       isConnected: boolean;
       publicKey?: { toString: () => string };
     };
@@ -45,7 +46,7 @@ interface WalletInfo {
   icon: string;
   downloadUrl: string;
   detectionFunction: () => boolean;
-  getAdapter: () => WalletAdapter;
+  getAdapter: () => WalletAdapter | null;
 }
 
 interface WalletSelectorProps {
@@ -55,11 +56,12 @@ interface WalletSelectorProps {
 export default function WalletSelector({ className = '' }: WalletSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [detectedWallets, setDetectedWallets] = useState<string[]>([]);
-  const [connectedWallet, setConnectedWallet] = useState<string | null>(null);
-  const [walletAddress, setWalletAddress] = useState<string | null>(null);
   const [isConnecting, setIsConnecting] = useState(false);
   const [currentAdapter, setCurrentAdapter] = useState<WalletAdapter | null>(null);
   const popupRef = useRef<HTMLDivElement>(null);
+  
+  // Use the wallet context instead of local state
+  const { isWalletConnected, walletAddress, walletName, connectWallet, disconnectWallet } = useWallet();
 
   // Create wallet adapters with standardized interfaces
   const createPhantomAdapter = (): WalletAdapter | null => {
@@ -72,8 +74,8 @@ export default function WalletSelector({ className = '' }: WalletSelectorProps) 
         return { publicKey: response.publicKey };
       },
       disconnect: async () => await provider.disconnect(),
-      signMessage: async (message: Uint8Array) => await provider.signMessage(message, 'utf8'),
-      isConnected: provider.isConnected,
+      signMessage: async (message: Uint8Array) => await provider.signMessage(message),
+      isConnected: provider.isConnected ?? false,
       publicKey: provider.publicKey || null
     };
   };
@@ -88,8 +90,13 @@ export default function WalletSelector({ className = '' }: WalletSelectorProps) 
         return { publicKey: response.publicKey };
       },
       disconnect: async () => await provider.disconnect(),
-      signMessage: async (message: Uint8Array) => await provider.signMessage(message, 'utf8'),
-      isConnected: provider.isConnected,
+      signMessage: async (message: Uint8Array) => {
+        // TypeScript doesn't recognize signMessage on the interface, but it should be available
+        // @ts-ignore - Solflare has signMessage, but TypeScript doesn't know about it
+        return await provider.signMessage(message);
+      },
+      isConnected: provider.isConnected ?? false,
+      // @ts-ignore - Solflare has publicKey, but TypeScript doesn't know about it
       publicKey: provider.publicKey || null
     };
   };
@@ -104,8 +111,13 @@ export default function WalletSelector({ className = '' }: WalletSelectorProps) 
         return { publicKey: response.publicKey };
       },
       disconnect: async () => await provider.disconnect(),
-      signMessage: async (message: Uint8Array) => await provider.signMessage(message, 'utf8'),
-      isConnected: provider.isConnected,
+      signMessage: async (message: Uint8Array) => {
+        // TypeScript doesn't recognize signMessage on the interface, but it should be available
+        // @ts-ignore - Magic Eden has signMessage, but TypeScript doesn't know about it
+        return await provider.signMessage(message);
+      },
+      isConnected: provider.isConnected ?? false,
+      // @ts-ignore - Magic Eden has publicKey, but TypeScript doesn't know about it
       publicKey: provider.publicKey || null
     };
   };
@@ -142,25 +154,7 @@ const wallets: WalletInfo[] = [
       .map(wallet => wallet.name);
     
     setDetectedWallets(installed);
-    
-    // Check if already connected to any wallet
-    checkExistingConnections();
   }, []);
-
-  const checkExistingConnections = async () => {
-    for (const wallet of wallets) {
-      if (wallet.detectionFunction()) {
-        const adapter = wallet.getAdapter();
-        if (adapter && adapter.isConnected && adapter.publicKey) {
-          const address = adapter.publicKey.toString();
-          setConnectedWallet(wallet.name);
-          setWalletAddress(address);
-          setCurrentAdapter(adapter);
-          break;
-        }
-      }
-    }
-  };
 
   // Close popup when clicking outside
   useEffect(() => {
@@ -211,11 +205,11 @@ const wallets: WalletInfo[] = [
             // Request signature from user
             await adapter.signMessage(message);
             
-            // If signature successful, set as connected
-            setConnectedWallet(wallet.name);
-            setWalletAddress(publicKey);
+            // If signature successful, use the context to connect
+            connectWallet(wallet.name, publicKey);
             setCurrentAdapter(adapter);
             console.log(`Connected to ${wallet.name} wallet: ${publicKey}`);
+            
           } catch (signError) {
             console.error(`User declined to sign message: ${signError}`);
             // Disconnect if user rejected signing
@@ -242,23 +236,10 @@ const wallets: WalletInfo[] = [
     }
   };
 
-  // Handle wallet disconnection
-  const handleDisconnect = async () => {
-    if (currentAdapter && connectedWallet) {
-      try {
-        await currentAdapter.disconnect();
-        setConnectedWallet(null);
-        setWalletAddress(null);
-        setCurrentAdapter(null);
-        console.log('Wallet disconnected');
-      } catch (error) {
-        console.error('Error disconnecting wallet:', error);
-        // Force UI reset even if disconnect fails
-        setConnectedWallet(null);
-        setWalletAddress(null);
-        setCurrentAdapter(null);
-      }
-    }
+  // Handle wallet disconnection using context
+  const handleDisconnect = () => {
+    disconnectWallet();
+    setIsOpen(false); // Close the dropdown after disconnecting
   };
 
   return (
@@ -266,7 +247,7 @@ const wallets: WalletInfo[] = [
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`${
-          connectedWallet 
+          isWalletConnected 
             ? 'bg-[#1a2e1a] hover:bg-[#1f3f1f]' 
             : 'bg-[#2e7d32] hover:bg-[#00dc82]'
         } text-white font-medium px-4 py-2 rounded-lg flex items-center justify-center transition-colors w-full`}
@@ -280,13 +261,13 @@ const wallets: WalletInfo[] = [
             </svg>
             Connecting...
           </div>
-        ) : connectedWallet ? (
+        ) : isWalletConnected ? (
           <div className="flex items-center">
             <div className="w-5 h-5 mr-2 relative flex-shrink-0 rounded-full overflow-hidden">
-              {wallets.find(w => w.name === connectedWallet) && (
+              {wallets.find(w => w.name === walletName) && (
                 <Image
-                  src={wallets.find(w => w.name === connectedWallet)!.icon}
-                  alt={connectedWallet}
+                  src={wallets.find(w => w.name === walletName)!.icon}
+                  alt={walletName || ''}
                   width={20}
                   height={20}
                   className="object-contain"
@@ -307,18 +288,18 @@ const wallets: WalletInfo[] = [
         <div className="absolute right-0 mt-2 w-64 bg-[#1c1c1c] border border-[#333] rounded-lg shadow-lg z-50 overflow-hidden">
           <div className="p-3 border-b border-[#333]">
             <h3 className="text-white font-medium">
-              {connectedWallet ? 'Wallet Connected' : 'Select Wallet'}
+              {isWalletConnected ? 'Wallet Connected' : 'Select Wallet'}
             </h3>
           </div>
           
-          {connectedWallet ? (
+          {isWalletConnected ? (
             <div className="p-4">
               <div className="flex items-center mb-3">
                 <div className="w-10 h-10 mr-3 relative flex-shrink-0 rounded-full overflow-hidden bg-[#2a2a2a] flex items-center justify-center p-1">
-                  {wallets.find(w => w.name === connectedWallet) && (
+                  {wallets.find(w => w.name === walletName) && (
                     <Image
-                      src={wallets.find(w => w.name === connectedWallet)!.icon}
-                      alt={connectedWallet}
+                      src={wallets.find(w => w.name === walletName)!.icon}
+                      alt={walletName || ''}
                       width={32}
                       height={32}
                       className="object-contain"
@@ -326,7 +307,7 @@ const wallets: WalletInfo[] = [
                   )}
                 </div>
                 <div>
-                  <p className="text-white font-medium">{connectedWallet}</p>
+                  <p className="text-white font-medium">{walletName}</p>
                   <p className="text-xs text-gray-400 break-all">{walletAddress}</p>
                 </div>
               </div>

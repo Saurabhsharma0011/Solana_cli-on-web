@@ -4,7 +4,8 @@ import Head from "next/head";
 import Link from "next/link";
 import TerminalComponent from "../components/terminal/Terminal";
 import WalletSelector from "../components/ui/WalletSelector";
-import { Terminal, Activity, FileText, Bot, Github, Twitter, Menu, X, Search } from "lucide-react";
+import { Terminal, Activity, FileText, Bot, Github, Twitter, Menu, X, Search, AlertTriangle } from "lucide-react";
+import { useWallet } from '../context/WalletContext';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +20,9 @@ const geistMono = Geist_Mono({
 export default function TerminalPage() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  
+  // Use the wallet context
+  const { isWalletConnected } = useWallet();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,7 +50,7 @@ export default function TerminalPage() {
       {/* Navigation */}
       <nav
         className={`relative w-full z-[70] transition-all duration-300 ${
-          scrolled ? "bg-[#0B1120]/95 backdrop-blur-sm border-b border-[#2FFFD1]" : "bg-transparent"
+          scrolled ? "bg-[#0B1120]/95 backdrop-blur-sm border-b border-[#2e7d32]" : "bg-transparent"
         }`}
       >
         <div className="max-w-[90%] xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,50 +60,50 @@ export default function TerminalPage() {
               <div className="w-14 h-14 rounded-full overflow-hidden">
                 <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="text-xl font-bold text-[#2FFFD1]">NEX4DEV</span>
+              <span className="text-xl font-bold text-[#2e7d32]">NEX4DEV</span>
             </Link>
 
             {/* Navigation Links */}
             <div className="hidden md:flex items-center space-x-8">
               <Link
                 href="/terminal"
-                className="flex items-center space-x-2 text-[#2FFFD1] transition-colors relative group"
+                className="flex items-center space-x-2 text-[#2e7d32] transition-colors relative group"
               >
                 <Terminal className="w-4 h-4" />
                 <span>Terminal</span>
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#2FFFD1]"></span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#2e7d32]"></span>
               </Link>
               <Link
                 href="/tracker"
-                className="flex items-center space-x-2 text-white hover:text-[#2FFFD1] transition-colors relative group"
+                className="flex items-center space-x-2 text-white hover:text-[#2e7d32] transition-colors relative group"
               >
                 <Activity className="w-4 h-4" />
                 <span>Tracker</span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2FFFD1] transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2e7d32] transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <a
-                href="#documentation"
-                className="flex items-center space-x-2 text-white hover:text-[#2FFFD1] transition-colors relative group"
+                href="https://docs.nex4.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 text-white hover:text-[#2e7d32] transition-colors relative group"
               >
                 <FileText className="w-4 h-4" />
-                <span>Documentation</span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2FFFD1] transition-all duration-300 group-hover:w-full"></span>
+                <span>Docs</span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2e7d32] transition-all duration-300 group-hover:w-full"></span>
               </a>
               <a
                 href="/#bot"
-                className="flex items-center space-x-2 text-white hover:text-[#2FFFD1] transition-colors relative group"
+                className="flex items-center space-x-2 text-white hover:text-[#2e7d32] transition-colors relative group"
               >
                 <Bot className="w-4 h-4" />
                 <span>NEX4 BOT</span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2FFFD1] transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2e7d32] transition-all duration-300 group-hover:w-full"></span>
               </a>
             </div>
 
             {/* Connect Wallet Button */}
             <div className="hidden md:flex items-center space-x-4">
               <WalletSelector />
-              <Github className="w-5 h-5 text-white hover:text-[#2FFFD1] cursor-pointer transition-colors" />
-              <Twitter className="w-5 h-5 text-white hover:text-[#2FFFD1] cursor-pointer transition-colors" />
             </div>
             
             {/* Mobile Menu Button */}
@@ -113,21 +117,21 @@ export default function TerminalPage() {
         
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden bg-[#0B1120]/95 backdrop-blur-sm pt-4 pb-6 px-6 absolute top-16 left-0 right-0 border-b border-[#2FFFD1] z-50">
+          <div className="md:hidden bg-[#0B1120]/95 backdrop-blur-sm pt-4 pb-6 px-6 absolute top-16 left-0 right-0 border-b border-[#2e7d32] z-50">
             <div className="flex flex-col space-y-4">
-              <Link href="/terminal" className="flex items-center space-x-2 text-[#2FFFD1] transition-colors py-2">
+              <Link href="/terminal" className="flex items-center space-x-2 text-[#2e7d32] transition-colors py-2">
                 <Terminal size={18} />
                 <span>Terminal</span>
               </Link>
-              <Link href="/tracker" className="flex items-center space-x-2 text-white hover:text-[#2FFFD1] transition-colors py-2">
+              <Link href="/tracker" className="flex items-center space-x-2 text-white hover:text-[#2e7d32] transition-colors py-2">
                 <Activity size={18} />
                 <span>Tracker</span>
               </Link>
-              <a href="#documentation" className="flex items-center space-x-2 text-white hover:text-[#2FFFD1] transition-colors py-2">
+              <a href="https://docs.nex4.dev/" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white hover:text-[#2e7d32] transition-colors py-2">
                 <FileText size={18} />
-                <span>Documentation</span>
+                <span>Docs</span>
               </a>
-              <a href="/#bot" className="flex items-center space-x-2 text-white hover:text-[#2FFFD1] transition-colors py-2">
+              <a href="/#bot" className="flex items-center space-x-2 text-white hover:text-[#2e7d32] transition-colors py-2">
                 <Bot size={18} />
                 <span>NEX4 BOT</span>
               </a>
@@ -136,10 +140,6 @@ export default function TerminalPage() {
                 <WalletSelector />
               </div>
               
-              <div className="pt-2 flex items-center space-x-4 border-t border-[#2FFFD1]">
-                <Github className="w-5 h-5 text-white hover:text-[#2FFFD1] cursor-pointer transition-colors" />
-                <Twitter className="w-5 h-5 text-white hover:text-[#2FFFD1] cursor-pointer transition-colors" />
-              </div>
             </div>
           </div>
         )}
@@ -150,7 +150,7 @@ export default function TerminalPage() {
         <div className="max-w-[90%] xl:max-w-[1400px] mx-auto px-6 py-8">
           <div className="mb-8">
             <h1 className="text-4xl font-bold mb-3">
-              <span className="text-[#2FFFD1]">Web4</span> Terminal
+              <span className="text-[#2e7d32]">Web4</span> Terminal
             </h1>
             <p className="text-gray-400 text-lg">
               A browser-based Solana CLI experience. Run Solana commands directly in your browser without requiring private keys.
@@ -158,10 +158,14 @@ export default function TerminalPage() {
           </div>
           
           <div className="h-[70vh]">
-            <TerminalComponent />
+            {isWalletConnected ? (
+              <TerminalComponent isWalletConnected={true} />
+            ) : (
+              <TerminalComponent isWalletConnected={false} />
+            )}
           </div>
           
-          <div className="mt-8 bg-[#071118] border border-[#2FFFD1]/50 rounded-lg p-6 shadow-lg">
+          <div className="mt-8 bg-[#071118] border border-[#2e7d32]/50 rounded-lg p-6 shadow-lg">
             <h2 className="text-xl font-semibold mb-4 text-white">About Web4 Terminal</h2>
             <p className="text-gray-300 mb-4">
               The Nex4 Web4 Terminal provides a sandboxed, read-only environment for interacting with the Solana blockchain. 
@@ -174,41 +178,41 @@ export default function TerminalPage() {
               You can simulate the installation of Solana CLI directly in the terminal using any of these commands:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
-              <div className="bg-[#0B1120] p-3 rounded border border-[#2FFFD1]/50">
+              <div className="bg-[#0B1120] p-3 rounded border border-[#2e7d32]/50">
                 <div className="text-sm font-medium mb-1">Linux / macOS (using curl):</div>
-                <code className="text-xs text-[#2FFFD1] break-all">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</code>
+                <code className="text-xs text-[#2e7d32] break-all">sh -c &quot;curl -sSfL https://release.solana.com/stable/install | sh&quot;</code>
               </div>
-              <div className="bg-[#0B1120] p-3 rounded border border-[#2FFFD1]/50">
+              <div className="bg-[#0B1120] p-3 rounded border border-[#2e7d32]/50">
                 <div className="text-sm font-medium mb-1">Debian / Ubuntu:</div>
-                <code className="text-xs text-[#2FFFD1]">apt-get install solana-cli</code>
+                <code className="text-xs text-[#2e7d32]">apt-get install solana-cli</code>
               </div>
-              <div className="bg-[#0B1120] p-3 rounded border border-[#2FFFD1]/50">
+              <div className="bg-[#0B1120] p-3 rounded border border-[#2e7d32]/50">
                 <div className="text-sm font-medium mb-1">macOS (using Homebrew):</div>
-                <code className="text-xs text-[#2FFFD1]">brew install solana</code>
+                <code className="text-xs text-[#2e7d32]">brew install solana</code>
               </div>
-              <div className="bg-[#0B1120] p-3 rounded border border-[#2FFFD1]/50">
+              <div className="bg-[#0B1120] p-3 rounded border border-[#2e7d32]/50">
                 <div className="text-sm font-medium mb-1">Check installed version:</div>
-                <code className="text-xs text-[#2FFFD1]">solana --version</code>
+                <code className="text-xs text-[#2e7d32]">solana --version</code>
               </div>
             </div>
             
             <h3 className="text-lg font-medium mb-2">Available Commands</h3>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-300">
-              <li><code className="bg-[#0B1120] px-2 py-1 rounded text-[#2FFFD1]">solana balance</code> - Check SOL balance</li>
-              <li><code className="bg-[#0B1120] px-2 py-1 rounded text-[#2FFFD1]">solana validators</code> - List active validators</li>
-              <li><code className="bg-[#0B1120] px-2 py-1 rounded text-[#2FFFD1]">solana block-height</code> - Get current block height</li>
-              <li><code className="bg-[#0B1120] px-2 py-1 rounded text-[#2FFFD1]">solana epoch-info</code> - Get current epoch information</li>
-              <li><code className="bg-[#0B1120] px-2 py-1 rounded text-[#2FFFD1]">solana transaction-count</code> - Get transaction count</li>
-              <li><code className="bg-[#0B1120] px-2 py-1 rounded text-[#2FFFD1]">solana slot</code> - Get current slot</li>
-              <li><code className="bg-[#0B1120] px-2 py-1 rounded text-[#2FFFD1]">solana supply</code> - Get current SOL supply</li>
-              <li><code className="bg-[#0B1120] px-2 py-1 rounded text-[#2FFFD1]">solana -h</code> - Show solana command help</li>
+              <li><code className="bg-[#0B1120] px-2 py-1 rounded text-[#2e7d32]">solana balance</code> - Check SOL balance</li>
+              <li><code className="bg-[#0B1120] px-2 py-1 rounded text-[#2e7d32]">solana validators</code> - List active validators</li>
+              <li><code className="bg-[#0B1120] px-2 py-1 rounded text-[#2e7d32]">solana block-height</code> - Get current block height</li>
+              <li><code className="bg-[#0B1120] px-2 py-1 rounded text-[#2e7d32]">solana epoch-info</code> - Get current epoch information</li>
+              <li><code className="bg-[#0B1120] px-2 py-1 rounded text-[#2e7d32]">solana transaction-count</code> - Get transaction count</li>
+              <li><code className="bg-[#0B1120] px-2 py-1 rounded text-[#2e7d32]">solana slot</code> - Get current slot</li>
+              <li><code className="bg-[#0B1120] px-2 py-1 rounded text-[#2e7d32]">solana supply</code> - Get current SOL supply</li>
+              <li><code className="bg-[#0B1120] px-2 py-1 rounded text-[#2e7d32]">solana -h</code> - Show solana command help</li>
             </ul>
           </div>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#0B1120] text-white border-t border-[#2FFFD1] pt-10 pb-8">
+      <footer className="bg-[#0B1120] text-white border-t border-[#2e7d32] pt-10 pb-8">
         <div className="max-w-[90%] xl:max-w-[1400px] mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Logo and description */}
