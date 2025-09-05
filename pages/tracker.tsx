@@ -55,7 +55,7 @@ export default function TrackerPage() {
               <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden">
                 <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="text-3xl font-bold text-[#2e7d32] -ml-1">NEX4</span>
+              <span className="text-3xl font-bold text-[#2e7d32] -ml-4">NEX4</span>
             </Link>
 
             {/* Navigation Links */}

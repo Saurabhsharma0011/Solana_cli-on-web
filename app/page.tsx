@@ -79,7 +79,7 @@ export default function NEX4Landing() {
               <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden">
                 <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="text-xl sm:text-3xl font-bold text-primary -ml-1">NEX4</span>
+              <span className="text-xl sm:text-3xl font-bold text-primary -ml-4">NEX4</span>
             </Link>
 
             {/* Navigation Links */}

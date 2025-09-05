@@ -39,7 +39,7 @@ export default function TerminalPage() {
         <title>Nex4 Terminal - Browser-Based Solana CLI</title>
         <meta name="description" content="Use Solana CLI commands directly in your browser with Nex4's Web4 Terminal. No private keys required." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/IMG_8326.PNG" />
+        <link rel="icon" href="/Nnewlogo.png" sizes="any" />
       </Head>
 
       {/* Navigation */}
@@ -55,7 +55,7 @@ export default function TerminalPage() {
               <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden">
                 <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="text-3xl font-bold text-[#2e7d32] -ml-1">NEX4</span>
+              <span className="text-3xl font-bold text-[#2e7d32] -ml-4">NEX4</span>
             </Link>
 
             {/* Navigation Links */}
@@ -201,11 +201,11 @@ export default function TerminalPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Logo and description */}
             <div className="col-span-1 md:col-span-1">
-              <Link href="/" className="flex items-center space-x-2 mb-4">
+              <Link href="/" className="flex items-center mb-4">
                 <div className="w-10 h-10 rounded-full overflow-hidden">
                   <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
                 </div>
-                <span className="font-bold text-xl">NEX4</span>
+                <span className="font-bold text-xl -ml-4">NEX4</span>
               </Link>
               <p className="text-gray-400 text-sm mb-4">
                 A professional browser-based platform for Solana developers and researchers.
@@ -314,8 +314,8 @@ export default function TerminalPage() {
                 </Link>
               </div>
             </div>
-            <div className="flex items-center space-x-2">
-              <span className="text-gray-500 text-xs">
+            <div className="flex items-center">
+              <span className="text-gray-500 text-xs mr-1">
                 Built for the Solana ecosystem
               </span>
               <div className="w-6 h-6 rounded-full overflow-hidden">
