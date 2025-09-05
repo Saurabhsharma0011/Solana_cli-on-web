@@ -75,11 +75,11 @@ export default function NEX4Landing() {
         <div className="max-w-[95%] sm:max-w-[90%] xl:max-w-[1400px] mx-auto px-2 sm:px-4 lg:px-8">
           <div className="flex items-center justify-between h-14 sm:h-16">
             {/* Brand name with link to homepage */}
-            <Link href="/" className="flex items-center space-x-0">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden mr-1">
+            <Link href="/" className="flex items-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden">
                 <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="text-xl sm:text-3xl font-bold text-primary">NEX4</span>
+              <span className="text-xl sm:text-3xl font-bold text-primary -ml-1">NEX4</span>
             </Link>
 
             {/* Navigation Links */}
@@ -123,11 +123,11 @@ export default function NEX4Landing() {
             {/* Social Links */}
             <div className="hidden lg:flex items-center space-x-5 xl:space-x-6">
               <a href="https://t.me/NEX4dev" target="_blank" rel="noopener noreferrer" className="group relative">
-                <img src="/TG (2).png" alt="Telegram" className="w-6 h-6 xl:w-7 xl:h-7" />
+                <img src="/TG (2).png" alt="Telegram" className="w-4 h-4 xl:w-5 xl:h-5" />
                 <span className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 text-xs bg-background/90 text-primary px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">Telegram</span>
               </a>
               <a href="https://x.com/nex4dev" target="_blank" rel="noopener noreferrer" className="group relative">
-                <img src="/X logo.png" alt="X" className="w-9 h-9 xl:w-11 xl:h-11" />
+                <img src="/X logo.png" alt="X" className="w-5 h-5 xl:w-6 xl:h-6" />
                 <span className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 text-xs bg-background/90 text-primary px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">Twitter</span>
               </a>
             </div>
@@ -164,10 +164,10 @@ export default function NEX4Landing() {
               
               <div className="pt-4 flex justify-center space-x-6 border-t border-border">
                 <a href="https://t.me/NEX4dev" target="_blank" rel="noopener noreferrer">
-                  <img src="/TG (2).png" alt="Telegram" className="w-6 h-6" />
+                  <img src="/TG (2).png" alt="Telegram" className="w-4 h-4" />
                 </a>
                 <a href="https://x.com/nex4dev" target="_blank" rel="noopener noreferrer">
-                  <img src="/X logo.png" alt="X" className="w-10 h-10" />
+                  <img src="/X logo.png" alt="X" className="w-5 h-5" />
                 </a>
               </div>
             </div>

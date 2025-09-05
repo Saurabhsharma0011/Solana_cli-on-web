@@ -18,9 +18,6 @@ const geistMono = Geist_Mono({
 export default function TerminalPage() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  
-  // No wallet connection needed
-  const isWalletConnected = false;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,11 +51,11 @@ export default function TerminalPage() {
         <div className="max-w-[90%] xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center h-16 relative">
             {/* Brand name with link to homepage */}
-            <Link href="/" className="flex items-center absolute left-0 space-x-0">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden mr-1">
+            <Link href="/" className="flex items-center absolute left-0">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden">
                 <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="text-3xl font-bold text-[#2e7d32]">NEX4</span>
+              <span className="text-3xl font-bold text-[#2e7d32] -ml-1">NEX4</span>
             </Link>
 
             {/* Navigation Links */}
@@ -149,7 +146,7 @@ export default function TerminalPage() {
           </div>
           
           <div className="h-[70vh]">
-            <TerminalComponent isWalletConnected={false} />
+            <TerminalComponent />
           </div>
           
           <div className="mt-8 bg-[#071118] border border-[#2e7d32]/50 rounded-lg p-6 shadow-lg">

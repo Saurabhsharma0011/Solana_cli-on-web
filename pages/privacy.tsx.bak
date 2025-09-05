@@ -40,11 +40,11 @@ const PrivacyPolicy = () => {
         <div className="max-w-[90%] xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Brand name with link to homepage */}
-            <Link href="/" className="flex items-center space-x-0">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden mr-1">
+            <Link href="/" className="flex items-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden">
                 <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="text-3xl font-bold text-primary">NEX4</span>
+              <span className="text-3xl font-bold text-primary -ml-1">NEX4</span>
             </Link>
 
             {/* Navigation Links */}

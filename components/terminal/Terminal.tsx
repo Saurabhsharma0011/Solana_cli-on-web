@@ -51,16 +51,13 @@ interface TerminalState {
 }
 
 interface TerminalProps {
-  // We can keep this prop for backwards compatibility but we'll use the context internally
+  // Prop kept for backwards compatibility, but no longer used
   isWalletConnected?: boolean;
 }
 
-const Terminal: React.FC<TerminalProps> = ({ isWalletConnected: propIsWalletConnected }) => {
-  // No wallet connection needed
-  const isWalletConnected = false;
-  
-  // Always false now that wallet connection is removed
-  const walletConnected = false;
+const Terminal: React.FC<TerminalProps> = () => {
+  // No wallet connection needed - terminal is free for everyone
+  // All features are available without wallet connection
   const [inputValue, setInputValue] = useState('');
   const [commandHistory, setCommandHistory] = useState<CommandEntry[]>([
     {
@@ -71,16 +68,10 @@ const Terminal: React.FC<TerminalProps> = ({ isWalletConnected: propIsWalletConn
           <div className="text-gray-400 text-sm mb-2">
             Type <span className="text-yellow-300">help</span> to see available commands
           </div>
-          {!walletConnected && (
-            <div className="text-orange-400 text-sm flex items-start space-x-2">
-              <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" />
-              <div>
-                <div className="font-semibold">Wallet Connection Required</div>
-                <div>Connect your wallet to use full terminal functionality.</div>
-                <div>Only <span className="text-yellow-300">help</span> and <span className="text-yellow-300">clear</span> commands are available without wallet connection.</div>
-              </div>
-            </div>
-          )}
+          <div className="text-blue-400 text-sm">
+            <div className="font-semibold">Free for everyone!</div>
+            <div>All terminal commands are now available. No wallet connection required.</div>
+          </div>
         </div>
       ),
     },
@@ -136,21 +127,10 @@ const Terminal: React.FC<TerminalProps> = ({ isWalletConnected: propIsWalletConn
         <div className="text-yellow-300 font-semibold">Available Commands:</div>
         <div className="flex items-center">
           <span className="text-purple-400 mr-2">help</span> - Show this help menu
-          {!isWalletConnected && <span className="text-green-400 text-xs ml-2">(Available without wallet)</span>}
         </div>
         <div className="flex items-center">
           <span className="text-purple-400 mr-2">clear</span> - Clear terminal
-          {!isWalletConnected && <span className="text-green-400 text-xs ml-2">(Available without wallet)</span>}
         </div>
-        
-        {!isWalletConnected && (
-          <div className="text-orange-400 text-sm mt-2 mb-2 flex items-start space-x-2">
-            <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" />
-            <div>
-              <div className="font-semibold">Note: The following commands require wallet connection</div>
-            </div>
-          </div>
-        )}
         
         <div><span className="text-purple-400">solana balance</span> - Check SOL balance</div>
         <div><span className="text-purple-400">solana validators</span> - List active validators</div>
@@ -1485,20 +1465,7 @@ const Terminal: React.FC<TerminalProps> = ({ isWalletConnected: propIsWalletConn
       return '';
     }
     
-    // Allow only 'help' and 'clear' commands without wallet connection
-    if (!walletConnected && cmdLower !== 'help' && cmdLower !== 'clear') {
-      return (
-        <div className="text-orange-400 flex items-start space-x-2">
-          <AlertTriangle size={18} className="mt-1 flex-shrink-0" />
-          <div>
-            <div className="font-semibold mb-1">Wallet Connection Required</div>
-            <div className="text-sm">
-              Please connect your wallet to use this command. You can only use <span className="text-yellow-300">help</span> and <span className="text-yellow-300">clear</span> commands without connecting a wallet.
-            </div>
-          </div>
-        </div>
-      );
-    }
+    // All commands are available without wallet connection
     
     // Extract command and arguments
     const parts = normalizedCmd.split(' ');
@@ -2041,12 +2008,6 @@ const Terminal: React.FC<TerminalProps> = ({ isWalletConnected: propIsWalletConn
           <div className="flex items-center space-x-2">
             <TerminalIcon size={16} className="text-purple-400" />
             <span className="font-medium text-sm">Nex4 Terminal</span>
-            {!walletConnected && (
-              <div className="ml-4 bg-orange-500/20 text-orange-400 text-xs px-2 py-0.5 rounded-full flex items-center">
-                <AlertTriangle size={12} className="mr-1" />
-                Limited Access Mode
-              </div>
-            )}
           </div>
           <div className="flex items-center space-x-4">
             {/* Network Selector */}
