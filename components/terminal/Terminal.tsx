@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Terminal as TerminalIcon, Copy, ChevronRight, RefreshCw, AlertTriangle } from 'lucide-react';
 import CommandWithCopy from '../ui/CommandWithCopy';
-import { useWallet } from '../../context/WalletContext';
 
 // Define the types for our command history
 interface CommandEntry {
@@ -57,11 +56,11 @@ interface TerminalProps {
 }
 
 const Terminal: React.FC<TerminalProps> = ({ isWalletConnected: propIsWalletConnected }) => {
-  // Use the wallet context
-  const { isWalletConnected } = useWallet();
+  // No wallet connection needed
+  const isWalletConnected = false;
   
-  // Use context value but allow prop to override for backwards compatibility
-  const walletConnected = propIsWalletConnected !== undefined ? propIsWalletConnected : isWalletConnected;
+  // Always false now that wallet connection is removed
+  const walletConnected = false;
   const [inputValue, setInputValue] = useState('');
   const [commandHistory, setCommandHistory] = useState<CommandEntry[]>([
     {

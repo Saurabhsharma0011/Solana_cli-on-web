@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color tokens to match NEX4DEV dark theme with teal/green accents */
+  /* Updated color tokens to match NEX4 dark theme with teal/green accents */
   --background: oklch(0.15 0.02 240); /* Dark blue-gray background */
   --foreground: oklch(0.98 0 0); /* Pure white text */
   --card: oklch(0.22 0.02 240); /* Slightly lighter card background */

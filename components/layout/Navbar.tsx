@@ -175,7 +175,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-2">
           <Link href="/" className="flex items-center space-x-2 cursor-pointer">
             <div className="flex items-center justify-center">
-              <Image src="/Nnewlogo.png" alt="Nex4 Logo" width={40} height={40} className="rounded-full" />
+              <Image src="/IMG_8326.PNG" alt="Nex4 Logo" width={40} height={40} className="rounded-full" />
             </div>
             <span className="font-bold text-xl">Nex4</span>
           </Link>

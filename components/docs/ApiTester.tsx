@@ -18,7 +18,7 @@ const ApiTester: React.FC = () => {
   const [showRequestHeaders, setShowRequestHeaders] = useState(false);
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState<ApiResponse | null>(null);
-  const installCommand = 'npm i nex4dev';
+  const installCommand = 'npm i nex4';
 
   const handleMethodChange = (newMethod: HttpMethod) => {
     setMethod(newMethod);

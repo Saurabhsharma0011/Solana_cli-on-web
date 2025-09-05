@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Layout from "../components/layout/Layout";
-import NEX4DEVLanding from "../app/page";
+import NEX4Landing from "../app/page";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 export default function Home() {
   return (
     <div className={`${geistSans.className} ${geistMono.className} font-sans`}>
-      <Layout title="NEX4DEV" description="Browser-based platform for Solana developers and researchers with live terminal, network tracker, and interactive documentation.">
-        <NEX4DEVLanding />
+      <Layout title="NEX4" description="Browser-based platform for Solana developers and researchers with live terminal, network tracker, and interactive documentation.">
+        <NEX4Landing />
       </Layout>
     </div>
   );

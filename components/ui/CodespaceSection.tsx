@@ -191,7 +191,7 @@ const CodespaceSection = () => {
   const [copyText, setCopyText] = React.useState('Copy');
   
   const handleCopy = () => {
-    navigator.clipboard.writeText('npm install nex4dev');
+    navigator.clipboard.writeText('npm install nex4');
     setCopyText('Copied!');
     
     setTimeout(() => {
@@ -210,12 +210,12 @@ const CodespaceSection = () => {
           <div className="decoration-dot dot-green"></div>
         </div>
         
-        <h2 className="text-3xl font-bold mb-4 text-foreground">Install NEX4DEV</h2>
-        <div className="npm-badge">nex4dev@1.0.0</div>
+        <h2 className="text-3xl font-bold mb-4 text-foreground">Install NEX4</h2>
+        <div className="npm-badge">nex4@1.0.0</div>
         <p className="text-muted-foreground mb-6">Get started with our powerful NPM module. Build, test, and deploy your Solana applications with ease.</p>
         
         <div className="install-command">
-          <span className="command-text">npm install nex4dev</span>
+          <span className="command-text">npm install nex4</span>
           <button className="copy-button" onClick={handleCopy}>{copyText}</button>
         </div>
         
@@ -223,7 +223,7 @@ const CodespaceSection = () => {
           <div className="code-text">
             <span className="comment">// Import the module in your project</span>
             <br />
-            <span className="highlight">import</span> {'{ initializeNex4, deployContract }'} <span className="highlight">from</span> <span>{'nex4dev'}</span>;
+            <span className="highlight">import</span> {'{ initializeNex4, deployContract }'} <span className="highlight">from</span> <span>{'nex4'}</span>;
             <br /><br />
             <span className="comment">// Initialize with your API key</span>
             <br />
@@ -236,7 +236,7 @@ const CodespaceSection = () => {
         </div>
         
         <div className="mt-8 flex justify-center">
-          <Link href="https://www.npmjs.com/package/nex4dev">
+          <Link href="https://www.npmjs.com/package/nex4">
             <Button className="bg-[#2FFFD1] text-[#0B1120] hover:bg-[#20D6AE] px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10 mr-4">
               Install Package
             </Button>

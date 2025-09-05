@@ -253,7 +253,7 @@ const Hero = () => {
                     <Typewriter
                       onInit={(typewriter) => {
                         typewriter
-                          .typeString("npm install nex4dev")
+                          .typeString("npm install nex4")
                           .start();
                       }}
                       options={{
@@ -262,7 +262,7 @@ const Hero = () => {
                       }}
                     />
                   </div>
-                  <CopyButton text="npm install nex4dev" />
+                  <CopyButton text="npm install nex4" />
                 </div>
                 
                 <div className="bg-[#1A2234] p-5 rounded-md border border-[#2D3648] text-gray-300">

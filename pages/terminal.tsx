@@ -3,9 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Head from "next/head";
 import Link from "next/link";
 import TerminalComponent from "../components/terminal/Terminal";
-import WalletSelector from "../components/ui/WalletSelector";
 import { Terminal, Activity, FileText, Bot, Github, Twitter, Menu, X, Search, AlertTriangle } from "lucide-react";
-import { useWallet } from '../context/WalletContext';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,8 +19,8 @@ export default function TerminalPage() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   
-  // Use the wallet context
-  const { isWalletConnected } = useWallet();
+  // No wallet connection needed
+  const isWalletConnected = false;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,17 +52,17 @@ export default function TerminalPage() {
         }`}
       >
         <div className="max-w-[90%] xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo with link to homepage */}
-            <Link href="/" className="flex items-center space-x-4">
-              <div className="w-14 h-14 rounded-full overflow-hidden">
-                <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
+          <div className="flex items-center justify-center h-16 relative">
+            {/* Brand name with link to homepage */}
+            <Link href="/" className="flex items-center absolute left-0 space-x-0">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden mr-1">
+                <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="text-xl font-bold text-[#2e7d32]">NEX4DEV</span>
+              <span className="text-3xl font-bold text-[#2e7d32]">NEX4</span>
             </Link>
 
             {/* Navigation Links */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-12 px-4">
               <Link
                 href="/terminal"
                 className="flex items-center space-x-2 text-[#2e7d32] transition-colors relative group"
@@ -101,13 +99,9 @@ export default function TerminalPage() {
               </a>
             </div>
 
-            {/* Connect Wallet Button */}
-            <div className="hidden md:flex items-center space-x-4">
-              <WalletSelector />
-            </div>
             
             {/* Mobile Menu Button */}
-            <div className="md:hidden">
+            <div className="md:hidden absolute right-0">
               <button onClick={toggleMenu} className="text-white">
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -136,9 +130,6 @@ export default function TerminalPage() {
                 <span>NEX4 BOT</span>
               </a>
               
-              <div className="mt-2">
-                <WalletSelector />
-              </div>
               
             </div>
           </div>
@@ -158,11 +149,7 @@ export default function TerminalPage() {
           </div>
           
           <div className="h-[70vh]">
-            {isWalletConnected ? (
-              <TerminalComponent isWalletConnected={true} />
-            ) : (
-              <TerminalComponent isWalletConnected={false} />
-            )}
+            <TerminalComponent isWalletConnected={false} />
           </div>
           
           <div className="mt-8 bg-[#071118] border border-[#2e7d32]/50 rounded-lg p-6 shadow-lg">
@@ -219,9 +206,9 @@ export default function TerminalPage() {
             <div className="col-span-1 md:col-span-1">
               <Link href="/" className="flex items-center space-x-2 mb-4">
                 <div className="w-10 h-10 rounded-full overflow-hidden">
-                  <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
+                  <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
                 </div>
-                <span className="font-bold text-xl">NEX4DEV</span>
+                <span className="font-bold text-xl">NEX4</span>
               </Link>
               <p className="text-gray-400 text-sm mb-4">
                 A professional browser-based platform for Solana developers and researchers.
@@ -292,7 +279,7 @@ export default function TerminalPage() {
                 <li>
                   <a href="https://t.me/NEX4dev" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#2e7d32] transition-colors text-sm flex items-center">
                     <div className="w-5 h-5 mr-2 flex items-center justify-center">
-                      <img src="/telegram.png" alt="Telegram" className="w-full h-full object-contain brightness-0 invert" />
+                      <img src="/TG (2).png" alt="Telegram" className="w-full h-full object-contain" />
                     </div>
                     Telegram
                   </a>
@@ -319,7 +306,7 @@ export default function TerminalPage() {
           <div className="border-t border-[#1E293B] mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 mb-4 md:mb-0">
               <p className="text-gray-500 text-xs">
-                © {new Date().getFullYear()} NEX4DEV. All rights reserved.
+                © {new Date().getFullYear()} NEX4. All rights reserved.
               </p>
               <div className="flex space-x-4 text-xs">
                 <Link href="/legal/terms" className="text-gray-500 hover:text-[#2e7d32] transition-colors">
@@ -335,7 +322,7 @@ export default function TerminalPage() {
                 Built for the Solana ecosystem
               </span>
               <div className="w-6 h-6 rounded-full overflow-hidden">
-                <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
+                <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>

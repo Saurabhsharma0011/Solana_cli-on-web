@@ -11,9 +11,9 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-1">
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <div className="w-10 h-10 rounded-full overflow-hidden">
-                <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
+                <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="font-bold text-xl">NEX4DEV</span>
+              <span className="font-bold text-2xl">NEX4</span>
             </Link>
             <p className="text-gray-400 text-sm mb-4">
               A professional browser-based platform for Solana developers and researchers.
@@ -22,7 +22,7 @@ const Footer = () => {
               <a href="https://github.com/nex4-network" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github size={20} className="text-gray-400 hover:text-white transition-colors" />
               </a>
-              <a href="https://x.com/nex4dev?s=21" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <a href="https://x.com/nex4dev" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <Twitter size={20} className="text-gray-400 hover:text-white transition-colors" />
               </a>
             </div>
@@ -107,7 +107,7 @@ const Footer = () => {
         <div className="border-t border-[#1E293B] mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 mb-4 md:mb-0">
             <p className="text-gray-500 text-xs">
-              © {new Date().getFullYear()} NEX4DEV. All rights reserved.
+              © {new Date().getFullYear()} NEX4. All rights reserved.
             </p>
             <div className="flex space-x-4 text-xs">
               <Link href="/terms" className="text-gray-500 hover:text-[#2FFFD1] transition-colors">
@@ -122,8 +122,8 @@ const Footer = () => {
             <span className="text-gray-500 text-xs">
               Built for the Solana ecosystem
             </span>
-            <div className="w-6 h-6 rounded-full overflow-hidden">
-              <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
+            <div className="w-10 h-10 rounded-full overflow-hidden">
+              <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>

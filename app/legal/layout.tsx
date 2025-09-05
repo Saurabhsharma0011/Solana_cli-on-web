@@ -14,12 +14,12 @@ export default function LegalLayout({
       <nav className="relative w-full z-[70] transition-all duration-300 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="max-w-[90%] xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo with link to homepage */}
-            <Link href="/" className="flex items-center space-x-4">
-              <div className="w-14 h-14 rounded-full overflow-hidden">
-                <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
+            {/* Brand name with link to homepage */}
+            <Link href="/" className="flex items-center space-x-0">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden mr-1">
+                <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="text-xl font-bold text-primary">NEX4DEV</span>
+              <span className="text-3xl font-bold text-primary">NEX4</span>
             </Link>
           </div>
         </div>
@@ -44,7 +44,7 @@ export default function LegalLayout({
           <div className="border-t border-[#1E293B] mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 mb-4 md:mb-0">
               <p className="text-gray-500 text-xs">
-                © {new Date().getFullYear()} NEX4DEV. All rights reserved.
+                © {new Date().getFullYear()} NEX4. All rights reserved.
               </p>
               <div className="flex space-x-4 text-xs">
                 <Link href="/legal/terms" className="text-gray-500 hover:text-[#2e7d32] transition-colors">

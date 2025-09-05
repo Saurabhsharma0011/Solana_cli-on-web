@@ -3,7 +3,6 @@ import Head from "next/head";
 import Link from "next/link";
 import Footer from "../components/layout/Footer";
 import { Terminal, Activity, FileText, Bot, Github, Twitter, Menu, X } from 'lucide-react';
-import WalletSelector from '../components/ui/WalletSelector';
 
 const TermsOfService = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -40,12 +39,12 @@ const TermsOfService = () => {
       >
         <div className="max-w-[90%] xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo with link to homepage */}
-            <Link href="/" className="flex items-center space-x-4">
-              <div className="w-14 h-14 rounded-full overflow-hidden">
-                <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
+            {/* Brand name with link to homepage */}
+            <Link href="/" className="flex items-center space-x-0">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden mr-1">
+                <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="text-xl font-bold text-primary">NEX4DEV</span>
+              <span className="text-3xl font-bold text-primary">NEX4</span>
             </Link>
 
             {/* Navigation Links */}
@@ -84,11 +83,16 @@ const TermsOfService = () => {
               </a>
             </div>
 
-            {/* Connect Wallet Button */}
+            {/* Social Links */}
             <div className="hidden md:flex items-center space-x-4">
-              <WalletSelector />
-              <Github className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-              <Twitter className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+              <a href="https://github.com/nex4-network" target="_blank" rel="noopener noreferrer" className="group relative">
+                <Github className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+                <span className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 text-xs bg-background/90 text-primary px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">GitHub</span>
+              </a>
+              <a href="https://x.com/nex4dev" target="_blank" rel="noopener noreferrer" className="group relative">
+                <Twitter className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+                <span className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 text-xs bg-background/90 text-primary px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">Twitter</span>
+              </a>
             </div>
             
             {/* Mobile Menu Button */}
@@ -121,9 +125,6 @@ const TermsOfService = () => {
                 <span>NEX4 BOT</span>
               </a>
               
-              <div className="mt-2">
-                <WalletSelector />
-              </div>
               
               <div className="pt-2 flex items-center space-x-4 border-t border-border">
                 <Github className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />

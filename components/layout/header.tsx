@@ -8,7 +8,7 @@ export function Header() {
       <div className="container mx-auto flex justify-between items-center px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2">
           <Image 
-            src="/Nnewlogo.png" 
+            src="/IMG_8326.PNG" 
             alt="Nex4 Logo" 
             width={40} 
             height={40} 

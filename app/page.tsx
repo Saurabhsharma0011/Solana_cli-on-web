@@ -5,7 +5,6 @@ import Link from "next/link"
 import { Button } from "../components/ui/button"
 import { Card } from "../components/ui/card"
 import { Badge } from "../components/ui/badge"
-import WalletSelector from "../components/ui/WalletSelector"
 import {
   Terminal,
   Activity,
@@ -35,7 +34,7 @@ import {
   Menu
 } from "lucide-react"
 
-export default function NEX4DEVLanding() {
+export default function NEX4Landing() {
   const [copied, setCopied] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeTab, setActiveTab] = useState("quickstart")
@@ -57,7 +56,7 @@ export default function NEX4DEVLanding() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const copyToClipboard = (text = "npm create nex4dev@latest") => {
+  const copyToClipboard = (text = "npm create nex4@latest") => {
     navigator.clipboard.writeText(text === "contract" ? "$NEX CA" : text)
     if (text !== "contract") {
       setCopied(true)
@@ -75,12 +74,12 @@ export default function NEX4DEVLanding() {
       >
         <div className="max-w-[95%] sm:max-w-[90%] xl:max-w-[1400px] mx-auto px-2 sm:px-4 lg:px-8">
           <div className="flex items-center justify-between h-14 sm:h-16">
-            {/* Logo with link to homepage */}
-            <Link href="/" className="flex items-center space-x-2 sm:space-x-4">
-              <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full overflow-hidden">
-                <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
+            {/* Brand name with link to homepage */}
+            <Link href="/" className="flex items-center space-x-0">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden mr-1">
+                <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="text-lg sm:text-xl font-bold text-primary">NEX4DEV</span>
+              <span className="text-xl sm:text-3xl font-bold text-primary">NEX4</span>
             </Link>
 
             {/* Navigation Links */}
@@ -121,17 +120,15 @@ export default function NEX4DEVLanding() {
               </a>
             </div>
 
-            {/* Connect Wallet Button */}
-            <div className="hidden lg:flex items-center space-x-2 xl:space-x-3">
-              <a href="https://t.me/NEX4dev" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-1 xl:space-x-2 px-3 xl:px-4 py-1.5 xl:py-2 bg-gradient-to-r from-[#2e7d32]/10 to-[#00dc82]/10 hover:from-[#2e7d32]/20 hover:to-[#00dc82]/20 border border-white/30 hover:border-white/50 rounded-lg text-[#2e7d32] hover:text-[#00dc82] transition-all duration-300 text-xs xl:text-sm font-medium group">
-                <div className="w-3 h-3 xl:w-4 xl:h-4 flex items-center justify-center">
-                  <img src="/telegram.png" alt="Telegram" className="w-full h-full object-contain brightness-0 invert transition-all duration-300" />
-                </div>
-                <span>Telegram</span>
+            {/* Social Links */}
+            <div className="hidden lg:flex items-center space-x-5 xl:space-x-6">
+              <a href="https://t.me/NEX4dev" target="_blank" rel="noopener noreferrer" className="group relative">
+                <img src="/TG (2).png" alt="Telegram" className="w-6 h-6 xl:w-7 xl:h-7" />
+                <span className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 text-xs bg-background/90 text-primary px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">Telegram</span>
               </a>
-              <a href="https://x.com/nex4dev" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-1 xl:space-x-2 px-3 xl:px-4 py-1.5 xl:py-2 bg-gradient-to-r from-primary/10 to-primary/5 hover:from-primary/20 hover:to-primary/10 border border-white/30 hover:border-white/50 rounded-lg text-primary hover:text-primary/80 transition-all duration-300 text-xs xl:text-sm font-medium group">
-                <Twitter className="w-3 h-3 xl:w-4 xl:h-4 group-hover:scale-110 transition-transform duration-300" />
-                <span>Twitter</span>
+              <a href="https://x.com/nex4dev" target="_blank" rel="noopener noreferrer" className="group relative">
+                <img src="/X logo.png" alt="X" className="w-9 h-9 xl:w-11 xl:h-11" />
+                <span className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 text-xs bg-background/90 text-primary px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">Twitter</span>
               </a>
             </div>
             
@@ -165,16 +162,12 @@ export default function NEX4DEVLanding() {
                 <span>NEX4 BOT</span>
               </a>
               
-              <div className="pt-2 flex flex-col space-y-2 border-t border-border">
-                <a href="https://t.me/NEX4dev" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-[#2e7d32]/10 to-[#00dc82]/10 hover:from-[#2e7d32]/20 hover:to-[#00dc82]/20 border border-white/30 hover:border-white/50 rounded-lg text-[#2e7d32] hover:text-[#00dc82] transition-all duration-300 text-sm font-medium group">
-                  <div className="w-4 h-4 flex items-center justify-center">
-                    <img src="/telegram.png" alt="Telegram" className="w-full h-full object-contain brightness-0 invert transition-all duration-300" />
-                  </div>
-                  <span>Telegram</span>
+              <div className="pt-4 flex justify-center space-x-6 border-t border-border">
+                <a href="https://t.me/NEX4dev" target="_blank" rel="noopener noreferrer">
+                  <img src="/TG (2).png" alt="Telegram" className="w-6 h-6" />
                 </a>
-                <a href="https://x.com/nex4dev" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-primary/10 to-primary/5 hover:from-primary/20 hover:to-primary/10 border border-white/30 hover:border-white/50 rounded-lg text-primary hover:text-primary/80 transition-all duration-300 text-sm font-medium group">
-                  <Twitter className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
-                  <span>Twitter</span>
+                <a href="https://x.com/nex4dev" target="_blank" rel="noopener noreferrer">
+                  <img src="/X logo.png" alt="X" className="w-10 h-10" />
                 </a>
               </div>
             </div>
@@ -214,7 +207,7 @@ export default function NEX4DEVLanding() {
             {/* Left side - Content */}
             <div className="animate-fade-in-up text-center lg:text-left">
               <Badge className="mb-4 sm:mb-6 bg-primary/10 text-primary border-primary/20 animate-premium-breathing">
-                NEX4DEV v1.0 is out <ChevronRight className="w-3 h-3 ml-1" />
+                NEX4 v1.0 is out <ChevronRight className="w-3 h-3 ml-1" />
               </Badge>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
@@ -247,7 +240,7 @@ export default function NEX4DEVLanding() {
               <div className="code-highlight rounded-lg p-4 font-mono text-sm max-w-md mx-auto lg:mx-0">
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">$</span>
-                  <span className="flex-1 ml-2">npm i nex4dev</span>
+                  <span className="flex-1 ml-2">npm i nex4</span>
                   <Button variant="ghost" size="sm" onClick={(e) => { e.preventDefault(); copyToClipboard(); }} className="h-6 w-6 p-0">
                     {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
                   </Button>
@@ -496,7 +489,7 @@ export default function NEX4DEVLanding() {
                       <div className="flex">
                         <div className="text-gray-500 w-6 text-right mr-4 select-none">1</div>
                         <div>
-                          <span className="text-blue-400">import</span> <span className="text-white">{"{"}</span> <span className="text-green-400">createTerminal</span> <span className="text-white">{"}"}</span> <span className="text-blue-400">from</span> <span className="text-orange-400">'nex4dev'</span><span className="text-white">;</span>
+                          <span className="text-blue-400">import</span> <span className="text-white">{"{"}</span> <span className="text-green-400">createTerminal</span> <span className="text-white">{"}"}</span> <span className="text-blue-400">from</span> <span className="text-orange-400">'nex4'</span><span className="text-white">;</span>
                         </div>
                       </div>
                       <div className="flex">
@@ -569,7 +562,7 @@ export default function NEX4DEVLanding() {
                       <div className="flex">
                         <div className="text-gray-500 w-6 text-right mr-4 select-none">1</div>
                         <div>
-                          <span className="text-blue-400">import</span> <span className="text-white">{"{"}</span> <span className="text-green-400">createNetworkMonitor</span><span className="text-white">,</span> <span className="text-green-400">Network</span> <span className="text-white">{"}"}</span> <span className="text-blue-400">from</span> <span className="text-orange-400">'nex4dev'</span><span className="text-white">;</span>
+                          <span className="text-blue-400">import</span> <span className="text-white">{"{"}</span> <span className="text-green-400">createNetworkMonitor</span><span className="text-white">,</span> <span className="text-green-400">Network</span> <span className="text-white">{"}"}</span> <span className="text-blue-400">from</span> <span className="text-orange-400">'nex4'</span><span className="text-white">;</span>
                         </div>
                       </div>
                       <div className="flex">
@@ -636,7 +629,7 @@ export default function NEX4DEVLanding() {
                       <div className="flex">
                         <div className="text-gray-500 w-6 text-right mr-4 select-none">1</div>
                         <div>
-                          <span className="text-blue-400">import</span> <span className="text-white">{"{"}</span> <span className="text-green-400">createDataService</span> <span className="text-white">{"}"}</span> <span className="text-blue-400">from</span> <span className="text-orange-400">'nex4dev'</span><span className="text-white">;</span>
+                          <span className="text-blue-400">import</span> <span className="text-white">{"{"}</span> <span className="text-green-400">createDataService</span> <span className="text-white">{"}"}</span> <span className="text-blue-400">from</span> <span className="text-orange-400">'nex4'</span><span className="text-white">;</span>
                         </div>
                       </div>
                       <div className="flex">
@@ -732,7 +725,7 @@ export default function NEX4DEVLanding() {
                         <span className="mr-1">•</span> TypeScript
                       </Badge>
                       <Badge variant="outline" className="text-xs bg-[#00dc82]/10 text-[#00dc82] border-[#00dc82]/20">
-                        <span className="mr-1">•</span> NEX4DEV
+                        <span className="mr-1">•</span> NEX4
                       </Badge>
                     </div>
                     <div className="flex items-center">
@@ -766,9 +759,9 @@ export default function NEX4DEVLanding() {
           <div className="mb-12 sm:mb-16 text-center lg:text-left">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-balance">Enable features as you grow</h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-4xl leading-relaxed mx-auto lg:mx-0">
-              NEX4DEV provides a comprehensive suite of tools for Solana developers and researchers. Our platform
+              NEX4 provides a comprehensive suite of tools for Solana developers and researchers. Our platform
               offers powerful features for blockchain interaction, network monitoring, and AI-assisted development
-              that scale with your project's needs. We've designed NEX4DEV to be accessible for developers of all skill levels.
+              that scale with your project's needs. We've designed NEX4 to be accessible for developers of all skill levels.
             </p>
           </div>
 
@@ -875,7 +868,7 @@ export default function NEX4DEVLanding() {
             ))}
 
             <Card className="p-4 sm:p-6 bg-primary/5 border-primary/20 flex flex-col justify-center items-start">
-              <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-foreground">Deep dive into NEX4DEV now</h3>
+              <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-foreground">Deep dive into NEX4 now</h3>
               <a href="https://docs.nex4.dev/" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm">
                   Start reading docs
@@ -898,7 +891,7 @@ export default function NEX4DEVLanding() {
               </Badge>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#2e7d32] via-[#00dc82] to-[#2e7d32] text-transparent bg-clip-text animate-gradient-x">
-              Meet NEX4BOT - Your Solana AI Assistant
+              Meet NEX4BOT - Your Web4 Studio Assistant
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Supercharge your Solana development with our intelligent AI assistant. Choose the tier that fits your needs.
@@ -1147,10 +1140,10 @@ export default function NEX4DEVLanding() {
             {/* Logo and description */}
             <div className="col-span-1 text-center sm:text-left">
               <Link href="/" className="flex items-center justify-center sm:justify-start space-x-2 mb-4">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden">
-                  <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden">
+                  <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
                 </div>
-                <span className="font-bold text-lg sm:text-xl">NEX4DEV</span>
+                <span className="font-bold text-lg sm:text-2xl">NEX4</span>
               </Link>
               <p className="text-gray-400 text-xs sm:text-sm mb-4">
                 A professional browser-based platform for Solana developers and researchers.
@@ -1254,7 +1247,7 @@ export default function NEX4DEVLanding() {
           <div className="border-t border-[#1E293B] mt-6 sm:mt-8 pt-6 sm:pt-8 flex flex-col items-center space-y-4 sm:space-y-0 sm:flex-row sm:justify-between">
             <div className="flex flex-col items-center space-y-2 sm:space-y-0 sm:flex-row sm:space-x-4">
               <p className="text-gray-500 text-xs text-center">
-                © {new Date().getFullYear()} NEX4DEV. All rights reserved.
+                © {new Date().getFullYear()} NEX4. All rights reserved.
               </p>
               <div className="flex space-x-3 sm:space-x-4 text-xs">
                 <Link href="/legal/terms" className="text-gray-500 hover:text-[#2e7d32] transition-colors">
@@ -1269,8 +1262,8 @@ export default function NEX4DEVLanding() {
               <span className="text-gray-500 text-xs">
                 Built for the Solana ecosystem
               </span>
-              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full overflow-hidden">
-                <img src="/IMG_8326.PNG" alt="NEX4DEV Logo" className="w-full h-full object-cover" />
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden">
+                <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>

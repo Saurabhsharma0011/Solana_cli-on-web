@@ -23,8 +23,8 @@ const Layout: React.FC<LayoutProps> = ({
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="./Nnewlogo.png" />
-        <link rel="icon" href="/Nnewlogo.png" />
+        <meta property="og:image" content="./IMG_8326.PNG" />
+        <link rel="icon" href="/IMG_8326.PNG" />
       </Head>
       <div className="flex flex-col min-h-screen bg-[#0B1120]">
         <Navbar />

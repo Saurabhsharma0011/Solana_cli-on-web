@@ -198,7 +198,7 @@ const wallets: WalletInfo[] = [
           
           // Create a message for signing to verify ownership
           const message = new TextEncoder().encode(
-            `Welcome to NEX4DEV! Please sign this message to verify your wallet ownership.\n\nThis signature will not trigger any blockchain transactions or incur any fees.\n\nTimestamp: ${Date.now()}`
+            `Welcome to NEX4! Please sign this message to verify your wallet ownership.\n\nThis signature will not trigger any blockchain transactions or incur any fees.\n\nTimestamp: ${Date.now()}`
           );
           
           try {
