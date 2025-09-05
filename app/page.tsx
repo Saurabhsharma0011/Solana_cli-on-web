@@ -43,7 +43,7 @@ export default function NEX4Landing() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   }
-  const fullText = "$NEX CA"
+  const fullText = "$FxBtGW7A6KhvWHK34VahUxJJ8SiF9Z8wTgXN1o9Ppump "
   const baseIconClass = "base-icon-class" // Declare the variable here
 
   useEffect(() => {
