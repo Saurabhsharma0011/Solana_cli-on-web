@@ -71,7 +71,7 @@ const Terminal: React.FC<TerminalProps> = () => {
           <div className="text-blue-400 text-sm">
             <div className="font-semibold">Free for everyone!</div>
             <div>All terminal commands are now available. No wallet connection required.</div>
-          </div>
+              </div>
         </div>
       ),
     },

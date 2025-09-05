@@ -74,11 +74,11 @@ const Security = () => {
             {/* Social Links */}
             <div className="hidden md:flex items-center space-x-4">
               <a href="https://github.com/nex4-network" target="_blank" rel="noopener noreferrer" className="group relative">
-                <Github className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+              <Github className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
                 <span className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 text-xs bg-background/90 text-primary px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">GitHub</span>
               </a>
               <a href="https://x.com/nex4dev" target="_blank" rel="noopener noreferrer" className="group relative">
-                <Twitter className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+              <Twitter className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
                 <span className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 text-xs bg-background/90 text-primary px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">Twitter</span>
               </a>
             </div>

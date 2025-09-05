@@ -205,7 +205,7 @@ export default function TerminalPage() {
                 <div className="w-10 h-10 rounded-full overflow-hidden">
                   <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
                 </div>
-                <span className="font-bold text-xl -ml-4">NEX4</span>
+                <span className="font-bold text-xl -ml-2">NEX4</span>
               </Link>
               <p className="text-gray-400 text-sm mb-4">
                 A professional browser-based platform for Solana developers and researchers.

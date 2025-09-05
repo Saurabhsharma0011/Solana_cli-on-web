@@ -9,11 +9,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and description */}
           <div className="col-span-1 md:col-span-1">
-            <Link href="/" className="flex items-center space-x-0 mb-4">
-              <div className="w-10 h-10 rounded-full overflow-hidden mr-1">
+            <Link href="/" className="flex items-center mb-4">
+              <div className="w-10 h-10 rounded-full overflow-hidden">
                 <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="font-bold text-2xl">NEX4</span>
+              <span className="font-bold text-2xl -ml-4">NEX4</span>
             </Link>
             <p className="text-gray-400 text-sm mb-4">
               A professional browser-based platform for Solana developers and researchers.

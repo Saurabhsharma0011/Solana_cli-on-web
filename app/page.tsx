@@ -1139,11 +1139,11 @@ export default function NEX4Landing() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {/* Logo and description */}
             <div className="col-span-1 text-center sm:text-left">
-              <Link href="/" className="flex items-center justify-center sm:justify-start space-x-2 mb-4">
+              <Link href="/" className="flex items-center justify-center sm:justify-start mb-4">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden">
                   <img src="/IMG_8326.PNG" alt="NEX4 Logo" className="w-full h-full object-cover" />
                 </div>
-                <span className="font-bold text-lg sm:text-2xl">NEX4</span>
+                <span className="font-bold text-lg sm:text-2xl -ml-4">NEX4</span>
               </Link>
               <p className="text-gray-400 text-xs sm:text-sm mb-4">
                 A professional browser-based platform for Solana developers and researchers.
